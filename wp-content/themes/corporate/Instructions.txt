@@ -1,0 +1,22 @@
+#############################################
+# Corporate wordpress theme			#
+# by Ori Pearl  -  http://www.oripearl.com/	#
+#############################################
+
+Hello and thank you for downloading the Corporate wordpress theme.
+This theme is licensed under the GPLv3 free software license.
+
+* Corporate theme was tested on all modern browsers and modern OS's and it is 100% cross-browser.
+* It is XHTML Strict v1.0 and CSS 2.1 valid 
+* The CSS styling in this theme is based on Blueprint CSS framework for easy customization and cross-browser support.
+* Some of the icons in this theme were taken from free (public property) Delli icons pack
+
+Editing the intro text:
+In order to edit the text that is showed on the main intro you need to open the file intro.html that is in this themes folder.
+This file can contain any text and html tags, so once you open it, you can edit it as you would like and the text you entered will appear in the intro.
+For best practice, use the <h2> tag for the header and the <p> tag for the paragraph. If you want to drop down a line use the <br/> tag.
+
+If you do not want the intro to appear at all, just delete the intro.html file and the intro section will not be shown in your site.
+
+
+If you need to contact me, please visit my web site at http://www.oripearl.com/
