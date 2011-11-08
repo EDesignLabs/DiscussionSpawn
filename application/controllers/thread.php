@@ -1,5 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+//Credit goes to Pisyek Kumar for the intial framework
+//http://blog.pisyek.com/2011/05/create-a-simple-blog-using-codeigniter-2-0-part-2/
+
 class thread extends CI_Controller {
 
 	function __construct()
