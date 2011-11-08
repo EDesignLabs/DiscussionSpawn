@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/blog2/';
+$config['base_url']	= 'http://localhost/thread2/';
 
 /*
 |--------------------------------------------------------------------------

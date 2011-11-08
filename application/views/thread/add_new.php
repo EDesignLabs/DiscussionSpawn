@@ -1,4 +1,4 @@
-<?php $this->load->view('blog/header');?>
+<?php $this->load->view('thread/header');?>
 
 <body>
     <div id="container">
@@ -8,7 +8,7 @@
         
         <div id="content">
         	
-            <?php $this->load->view('blog/menu');?>
+            <?php $this->load->view('thread/menu');?>
             
             <?php if(validation_errors()){echo validation_errors('<p class="error">','</p>');} ?>
             <?php if($this->session->flashdata('message')){echo '<p class="success">'.$this->session->flashdata('message').'</p>';}?>
@@ -28,7 +28,7 @@
             <hr />
         </div><!-- Close content -->
     	
-        <?php $this->load->view('blog/footer');?>
+        <?php $this->load->view('thread/footer');?>
     
     </div><!-- Close container -->
 </body>

@@ -6,7 +6,7 @@
 	 * @link http://www.pisyek.com
 	 */
 
-class Blog_model extends CI_Model {
+class thread_model extends CI_Model {
 
 	function get_all_posts()
 	{
@@ -63,5 +63,5 @@ class Blog_model extends CI_Model {
 	}
 }
 
-/* End of file blog_model.php */
-/* Location: ./application/models/blog_model.php */
+/* End of file thread_model.php */
+/* Location: ./application/models/thread_model.php */

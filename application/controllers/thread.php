@@ -1,17 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	/**
-	 * @author Pisyek Kumar
-	 * @email pisyek@gmail.com
-	 * @link http://www.pisyek.com
-	 */
-
-class Blog extends CI_Controller {
+class thread extends CI_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('blog_model');
+		$this->load->model('thread_model');
 	}
 
 	//this function will retrive all entry in the database
@@ -20,24 +14,24 @@ class Blog extends CI_Controller {
 		//set page title
 		$data['title'] = "Home";
 		
-		$data['query'] = $this->blog_model->get_all_posts();
-		$this->load->view('blog/index',$data);
+		$data['query'] = $this->thread_model->get_all_posts();
+		$this->load->view('thread/index',$data);
 	}
 	
 	public function about()
 	{
 		//set page title
 		$data['title'] = "About";
-		$this->load->view('blog/about',$data);
+		$this->load->view('thread/about',$data);
 	}
 	
 	//this function will retrive a post
 	public function post($id)
 	{
-		$data['query'] = $this->blog_model->get_post($id);
-		$data['comments'] = $this->blog_model->get_post_comment($id);
+		$data['query'] = $this->thread_model->get_post($id);
+		$data['comments'] = $this->thread_model->get_post_comment($id);
 		$data['post_id'] = $id;
-		$data['total_comments'] = $this->blog_model->total_comments($id);
+		$data['total_comments'] = $this->thread_model->total_comments($id);
 		
 		$this->load->helper('form');
 		$this->load->library(array('form_validation','session'));
@@ -47,9 +41,9 @@ class Blog extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 		$this->form_validation->set_rules('comment', 'Comment', 'required');
 		
-		if($this->blog_model->get_post($id))
+		if($this->thread_model->get_post($id))
 		{
-			foreach($this->blog_model->get_post($id) as $row)
+			foreach($this->thread_model->get_post($id) as $row)
 			{
 				//set page title
 				$data['title'] = $row->entry_name;
@@ -58,7 +52,7 @@ class Blog extends CI_Controller {
 			if ($this->form_validation->run() == FALSE)
 			{
 				//if not valid
-				$this->load->view('blog/post',$data);
+				$this->load->view('thread/post',$data);
 			}
 			else
 			{
@@ -68,7 +62,7 @@ class Blog extends CI_Controller {
 				$comment = $this->input->post('comment');
 				$post_id = $this->input->post('post_id');
 				
-				$this->blog_model->add_new_comment($post_id,$name,$email,$comment);
+				$this->thread_model->add_new_comment($post_id,$name,$email,$comment);
 				$this->session->set_flashdata('message', '1 new comment added!');
 				redirect('post/'.$id);
 			}
@@ -92,19 +86,19 @@ class Blog extends CI_Controller {
 		if ($this->form_validation->run() == FALSE)
 		{
 			//if not valid
-			$this->load->view('blog/add_new',$data);
+			$this->load->view('thread/add_new',$data);
 		}
 		else
 		{
 			//if valid
 			$name = $this->input->post('entry_name');
 			$body = $this->input->post('entry_body');
-			$this->blog_model->add_new_entry($name,$body);
+			$this->thread_model->add_new_entry($name,$body);
 			$this->session->set_flashdata('message', '1 new post added!');
 			redirect('new-post');
 		}
 	}
 }
 
-/* End of file blog.php */
-/* Location: ./application/controllers/blog.php */
+/* End of file thread.php */
+/* Location: ./application/controllers/thread.php */

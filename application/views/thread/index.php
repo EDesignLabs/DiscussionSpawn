@@ -1,4 +1,4 @@
-<?php $this->load->view('blog/header');?>
+<?php $this->load->view('thread/header');?>
 
 <body>
     <div id="container">
@@ -8,7 +8,7 @@
         
         <div id="content">
         	
-            <?php $this->load->view('blog/menu');?>
+            <?php $this->load->view('thread/menu');?>
             <?php if($query): foreach($query as $post):?>
             <div class="post">
                 <div class="post meta">
@@ -29,7 +29,7 @@
             
         </div><!-- Close content -->
     	
-        <?php $this->load->view('blog/footer');?>
+        <?php $this->load->view('thread/footer');?>
     	
     </div><!-- Close container -->
 </body>

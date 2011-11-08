@@ -38,12 +38,12 @@
 |
 */
 
-$route['default_controller'] = "blog";
+$route['default_controller'] = "thread";
 $route['404_override'] = '';
 
-$route['about'] = 'blog/about';
-$route['new-post'] = 'blog/add_new_entry';
-$route['post/(:num)'] = 'blog/post/$1';
+$route['about'] = 'thread/about';
+$route['new-post'] = 'thread/add_new_entry';
+$route['post/(:num)'] = 'thread/post/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
