@@ -9,6 +9,43 @@
         <div id="content">
         	
             <?php $this->load->view('thread/menu');?>
+            
+            <div class = "column-left" >
+	            <article class = "align-left">
+	            	test l
+	            </article>
+	            <article class = "align-left">
+	            	test l
+	            </article>
+	            <article class = "align-left">
+	            	test l
+	            </article>
+            </div>
+
+			<div class = "column-right" >
+	            <article class = "align-right">
+	            	test r 
+	            </article>
+	
+	            <article class = "align-right">
+	            	test r
+	            </article>
+	            
+	            <article class = "align-right">
+	            	test r
+	            </article>
+	            <article class = "align-right">
+	            	test r
+	            </article>
+	            
+	            <article class = "align-right" >
+	            	test r
+	            </article>
+	       </div>
+            
+
+            
+            
             <?php if($query): foreach($query as $post):?>
             <div class="post">
                 <div class="post meta">
@@ -22,8 +59,7 @@
                 <hr />
             </div><!-- Close post -->
             <?php endforeach; else: ?>
-            
-            <h1>no entry yet!</h1>
+            	<h1>no entry yet!</h1>
             <?php endif; ?>
             
             
