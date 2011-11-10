@@ -3,7 +3,7 @@
 //Credit goes to Pisyek Kumar for the intial framework
 //http://blog.pisyek.com/2011/05/create-a-simple-blog-using-codeigniter-2-0-part-2/
 
-class thread extends CI_Controller {
+class thread extends MY_Controller {
 
 	function __construct()
 	{
