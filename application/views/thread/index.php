@@ -3,7 +3,7 @@
 <body>
     <div id="container">
     	<div id="header">
-        
+			Welcome <?=$username?>
         </div><!-- Close header -->
         
         <div id="content">

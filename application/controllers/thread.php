@@ -16,6 +16,8 @@ class thread extends MY_Controller {
 	{
 		//set page title
 		$data['title'] = "Home";
+		$data['user_id']	= $this->tank_auth->get_user_id();
+		$data['username']	= $this->tank_auth->get_username();
 		
 		$data['query'] = $this->thread_model->get_all_posts();
 		$this->load->view('thread/index',$data);

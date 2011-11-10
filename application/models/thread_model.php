@@ -18,11 +18,14 @@ class thread_model extends CI_Model {
 	
 	function add_new_entry($name,$body)
 	{
-		$data = array(
-			'entry_name' => $name,
-			'entry_body' => $body,
-		);
-		$this->db->insert('entry',$data);
+		if ($this->tank_auth->is_logged_in()) {
+			$data = array(
+				'entry_name' => $name,
+				'entry_body' => $body,
+				'author_id' => $this->tank_auth->get_user_id()
+			);
+			$this->db->insert('entry',$data);
+		}
 	}
 	
 	function add_new_comment($post_id,$commentor,$email,$comment)
