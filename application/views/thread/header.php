@@ -11,17 +11,18 @@
 $( init );
  
 function init() {
-  $('article').draggable({ axis: 'y' });
+  $('.node').draggable({ axis: 'y' });
   
   $('.save_btn').click(function() {
-	$('article').each(function(index) {
-		console.log(index + ': ' + $(this).css('top'));
+	$('.node').each(function(index) {	
+		$(this).css("border","5px solid red");
+		var that = this;
 		
 		$.ajax({
 		  url: "thread/update_top/"+$(this).data('entry_id')+"/"+$(this).css('top'),
 		  context: document.body,
 		  success: function(){
-			$(this).addClass("done");
+			$(that).css("border","none");
 		  }
 		});
 	});
