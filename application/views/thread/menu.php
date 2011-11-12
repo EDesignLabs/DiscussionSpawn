@@ -6,4 +6,3 @@
 
     </ol>
 </div>
-<br clear="all" />

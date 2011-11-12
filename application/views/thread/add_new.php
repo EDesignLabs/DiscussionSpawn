@@ -21,6 +21,14 @@
             <p><strong>Body</strong>: (HTML mode)</p>
             <textarea rows="6" cols="80%" name="entry_body" style="resize:none;"></textarea>
             <br clear="all" />
+			
+            <p><strong>Position</strong>:</p>
+			<input type="radio" name="position" value="left" Checked>Left<br>
+			<input type="radio" name="position" value="right">Right<br>
+			<input type="radio" name="position" value="full">Full<br> 
+            <br clear="all" />
+			
+
             
             <p><input type="submit" value="Submit" /></p>
             <?php echo form_close(); ?>

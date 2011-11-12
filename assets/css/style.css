@@ -70,7 +70,7 @@ table {
 
 #menu{
 	text-align:center;
-	margin:5px 0;
+	margin:25px 0;
 }
 
 #menu ol{
@@ -92,25 +92,23 @@ table {
 	text-align:center;
 }
 
+#content{
+	width: 1024px;
+
+}
 
 article{
-	width: 505px;
+	width: 512px;
 	min-height: 300px;
 	background-color: red;
-	margin: 5px;
+	position: absolute;
 }
 
-.column-left {
-    clear: left;
-    float: left;
-    width: 50%;
+.align-right{
+	left: 682px;
+
 }
 
-.column-right {
-    clear: right;
-    float: right;
-    width: 50%;
-}
 
 
 div.post{
