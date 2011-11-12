@@ -67,6 +67,17 @@ class thread_model extends CI_Model {
 		$this->db->from('comment');
 		return $this->db->count_all_results();
 	}
+	
+	public function move_entry_top($entry_id, $top){
+		$data = array(
+					   'top' => $top,
+					);
+
+		$this->db->where('entry_id', $entry_id);
+		$this->db->update('entry', $data);
+
+	
+	}
 }
 
 /* End of file thread_model.php */

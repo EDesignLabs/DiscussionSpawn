@@ -12,7 +12,7 @@
             
             <div id="content">
 				<?php if($query): foreach($query as $post):?>
-				<article class="align-<?=$post->position;?>">
+				<article class="align-<?=$post->position;?>" data-entry_id = "<?=$post->entry_id;?>" style = "top:<?=$post->top;?>px">
 					<div class="post meta">
 						<div class="title"><h2><?php echo $post->entry_name;?></h2></div>
 						<div class="date"><?php echo mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($post->entry_date));?></div>

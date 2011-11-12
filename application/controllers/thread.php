@@ -104,6 +104,12 @@ class thread extends MY_Controller {
 			redirect('new-post');
 		}
 	}
+	
+	public function update_top($entry_id, $top){
+		$this->thread_model->move_entry_top($entry_id, $top);
+		echo "hello success";
+	
+	}
 }
 
 /* End of file thread.php */

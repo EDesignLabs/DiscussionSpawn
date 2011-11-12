@@ -12,6 +12,22 @@ $( init );
  
 function init() {
   $('article').draggable({ axis: 'y' });
+  
+  $('.save_btn').click(function() {
+	$('article').each(function(index) {
+		console.log(index + ': ' + $(this).css('top'));
+		
+		$.ajax({
+		  url: "thread/update_top/"+$(this).data('entry_id')+"/"+$(this).css('top'),
+		  context: document.body,
+		  success: function(){
+			$(this).addClass("done");
+		  }
+		});
+	});
+  
+  });
+  
 }
  
 </script>
