@@ -99,8 +99,8 @@ class thread extends MY_Controller {
 			$name = $this->input->post('entry_name');
 			$body = $this->input->post('entry_body');
 			$position = $this->input->post('position');
-			$this->thread_model->add_new_entry($name,$body);
-			$this->session->set_flashdata('message', '1 new post added at position !'.$position );
+			$this->thread_model->add_new_entry($name,$body, $position);
+			$this->session->set_flashdata('message', '1 new post added at position '.$position.' !' );
 			redirect('new-post');
 		}
 	}
