@@ -89,21 +89,23 @@ table {
 
 #content{
 	width: 1024px;
-
+	position:relative;
+	background: url("../img/dotted-line.png") repeat-y scroll center center transparent;
+	margin-bottom: 100px;
 }
 
 .node{
 	width: 512px;
-	min-height: 300px;
 	background-color: green;
 	position: absolute;
 }
 .align-left{
 	background:url("../img/arrow-circle-lr.png") no-repeat scroll right 50px transparent;
+	left:8px;
 }
 
 .align-right{
-	left: 682px;
+	right: 9px;
 	background:url("../img/arrow-circle-rl.png") no-repeat scroll left 50px transparent;
 }
 

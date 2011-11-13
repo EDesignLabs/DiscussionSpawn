@@ -9,7 +9,24 @@
         
         	
             <?php $this->load->view('thread/menu');?>
-            
+			
+			<script type="text/javascript">
+				$(function() {
+					var pageHeight = 100;
+				
+					$('.node').each(function(index) {						
+						if ($(this).offset().top > pageHeight )
+							pageHeight = $(this).offset().top;
+					});
+				
+				   $('#content').animate({
+					height: pageHeight
+				  }, 1000, function() {
+					// Animation complete.
+				  });
+				});
+			</script>
+
             <div id="content">
 				<?php if($query): foreach($query as $post):?>
 				<div class = "node align-<?=$post->position;?>" data-entry_id = "<?=$post->entry_id;?>" style = "top:<?=$post->top;?>px">

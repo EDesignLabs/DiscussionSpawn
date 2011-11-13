@@ -11,7 +11,27 @@
 $( init );
  
 function init() {
-  $('.node').draggable({ axis: 'y' });
+  $('.node').draggable({ 
+  axis: 'y' ,
+  stop: function(event, ui) { 
+				$(function() {
+					var pageHeight = 100;
+				
+					$('.node').each(function(index) {						
+						if ($(this).offset().top > pageHeight )
+							pageHeight = $(this).offset().top;
+					});
+				
+				   $('#content').animate({
+					height: pageHeight
+				  }, 0, function() {
+					// Animation complete.
+				  });
+				});
+	}
+ });
+  
+
   
   $('.save_btn').click(function() {
 	$('.node').each(function(index) {	
@@ -28,6 +48,8 @@ function init() {
 	});
   
   });
+
+
   
 }
  
