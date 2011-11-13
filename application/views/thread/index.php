@@ -45,16 +45,16 @@
 				<?php endforeach; else: ?>
 					<h1>no entry yet!</h1>
 				<?php endif; ?>
+				<aside class = "insert">
+					<ul>
+						<li><a class = "save_btn" href="#">Save</a></li>
+						<li><a href = "" > <img src =  "<?php echo base_url() ?>assets/img/add-left.png"></a></li>
+
+					</ul>
+				</aside>
+				
 			</div><!-- Close content -->
 
-            
-
-            
-            
-
-            
-            
-        
     	
         <?php //$this->load->view('thread/footer');?>
     	
