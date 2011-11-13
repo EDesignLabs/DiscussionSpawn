@@ -25,6 +25,14 @@
 					// Animation complete.
 				  });
 				});
+				
+				$(document).ready(function() {
+					
+					$("a#inline").fancybox({
+						'hideOnContentClick': true
+					});
+					
+				});
 			</script>
 
             <div id="content">
@@ -48,14 +56,16 @@
 				<aside class = "insert">
 					<ul>
 						<li><a class = "save_btn" href="#">Save</a></li>
-						<li><a href = "" > <img src =  "<?php echo base_url() ?>assets/img/add-left.png"></a></li>
+						<li><a id="inline" href="#data" > <img src =  "<?php echo base_url() ?>assets/img/add-left.png"></a></li>
 
 					</ul>
 				</aside>
 				
 			</div><!-- Close content -->
-
-    	
+			
+			<div style="display:none"><div id="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></div>
+			
+			
         <?php //$this->load->view('thread/footer');?>
     	
     </div><!-- Close container -->
