@@ -11,56 +11,12 @@
 
 <script type="text/javascript">
  
-$( init );
- 
-function init() {
-  $('.node').draggable({ 
-  axis: 'y' ,
-  stop: function(event, ui) { 
-				$(function() {
-					var pageHeight = 100;
-				
-					$('.node').each(function(index) {						
-						if ($(this).offset().top > pageHeight )
-							pageHeight = $(this).offset().top;
-					});
-				
-				   $('#content').animate({
-					height: pageHeight
-				  }, 0, function() {
-					// Animation complete.
-				  });
-				});
-	}
- });
-  
-
-  
-  $('.save_btn').click(function() {
-	$('.node').each(function(index) {	
-		$(this).css("border","5px solid red");
-		var that = this;
-		
-		$.ajax({
-		  url: "thread/update_top/"+$(this).data('entry_id')+"/"+$(this).css('top'),
-		  context: document.body,
-		  success: function(){
-			$(that).css("border","none");
-		  }
-		});
-	});
-  
-  });
-
-
-  
-}
  
 </script>
 
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/reset.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo base_url();?>assets/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-
+<link media="all" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet">
 
 </head>

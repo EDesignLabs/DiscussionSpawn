@@ -14,7 +14,9 @@ class thread extends MY_Controller {
 	//this function will retrive all entry in the database
 	public function index()
 	{
-		//set page title
+		$this->load->helper('form');
+		$this->load->library(array('form_validation','session'));
+	
 		$data['title'] = "Home";
 		$data['user_id']	= $this->tank_auth->get_user_id();
 		$data['username']	= $this->tank_auth->get_username();
@@ -105,9 +107,15 @@ class thread extends MY_Controller {
 		}
 	}
 	
-	public function update_top($entry_id, $top){
-		$this->thread_model->move_entry_top($entry_id, $top);
-		echo "hello success";
+	public function update_location($entry_id, $top, $position){
+		$this->thread_model->move_entry($entry_id, $top, $position);
+		echo "hello success: Moved Location";
+	
+	}
+	
+	public function delete_entry($entry_id){
+		$this->thread_model->delete_entry($entry_id);
+		echo "hello success: Deleted Enrty";
 	
 	}
 }

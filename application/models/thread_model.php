@@ -68,15 +68,20 @@ class thread_model extends CI_Model {
 		return $this->db->count_all_results();
 	}
 	
-	public function move_entry_top($entry_id, $top){
+	public function move_entry($entry_id, $top, $position){
 		$data = array(
 					   'top' => $top,
+					   'position' => $position
 					);
 
 		$this->db->where('entry_id', $entry_id);
 		$this->db->update('entry', $data);
 
 	
+	}
+	
+	public function delete_entry($entry_id){
+		$this->db->delete('entry', array('entry_id' => $entry_id)); 
 	}
 }
 
