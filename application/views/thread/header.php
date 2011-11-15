@@ -10,8 +10,20 @@
 <script type="text/javascript" src="<?=base_url()?>assets/fancybox/jquery.easing-1.3.pack.js"></script>
 
 <script type="text/javascript">
- 
- 
+
+$(function(){
+$('.step1').siblings().hide(); 
+
+$('.continue').click(function(){
+   $(this).closest('.step').hide().next('.step').show();
+   return false;
+});
+
+$('.back').click(function(){
+   $(this).closest('.step').hide().prev('.step').show();
+   return false;
+});
+});
 </script>
 
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/reset.css" type="text/css" />
