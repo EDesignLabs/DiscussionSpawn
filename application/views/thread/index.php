@@ -21,7 +21,7 @@
 				
 				   $('#content').animate({
 					height: pageHeight
-				  }, 1000, function() {
+				  }, 0, function() {
 					// Animation complete.
 				  });
 				});

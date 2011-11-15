@@ -8,7 +8,7 @@
             <?php if(validation_errors()){echo validation_errors('<p class="error">','</p>');} ?>
             <?php if($this->session->flashdata('message')){echo '<p class="success">'.$this->session->flashdata('message').'</p>';}?>
             
-            <?php echo form_open('new-post');?>
+            <?php echo form_open('');?>
             <p><strong>Title</strong>:<br />
 			<input type="text" name="entry_name" size="60" /></p>
             <br clear="all" />
