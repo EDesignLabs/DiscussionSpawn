@@ -28,6 +28,7 @@ class thread_model extends CI_Model {
 				
 			);
 			$this->db->insert('entry',$data);
+			return $this->db->insert_id();
 		}
 	}
 	

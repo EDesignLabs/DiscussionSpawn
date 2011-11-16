@@ -105,7 +105,7 @@ class thread extends MY_Controller {
 			show_404();
 	}
 	
-	public function add_new_entry()
+	public function add_new_entry_page()
 	{
 		//set page title
 		$data['title'] = "Add new post";
@@ -133,6 +133,11 @@ class thread extends MY_Controller {
 			redirect('new-post');
 		}
 	}
+	
+	public function add_new_entry($name,$body, $position, $top){
+		echo $this->thread_model->add_new_entry($name,$body, $position, $top);
+	}
+	
 	
 	public function update_location($entry_id, $top, $position){
 		$this->thread_model->move_entry($entry_id, $top, $position);
