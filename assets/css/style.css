@@ -36,7 +36,7 @@ body {
 	text-align:center;
 }
 
-#content{
+#content-nodes{
 	width: 1024px;
 	position:relative;
 	background: url("../img/dotted-line.png") repeat-y scroll center center transparent;
