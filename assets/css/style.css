@@ -87,12 +87,18 @@ body {
 
 #toolbox{
     height: 30px;
-    left: 50px;
     margin-top: 85px;
     position: fixed;
     text-align: right;
     width: 100px;
+	
+  
+}
 
+#toolbox ul{
+    position:relative;
+    left: -100px;
+	
   
 }
 
@@ -106,6 +112,14 @@ body {
 	height:50px; 
 	background-color:lightPink;
 }
+
+#add_btn{
+	width:50px; 
+	height:50px; 
+	background-color:lightGray;
+}
+
+
 
 #trash.drophover{
 	border:1px solid red;
@@ -125,7 +139,6 @@ article{
 	float: right;
 
 }
-
 
 
 

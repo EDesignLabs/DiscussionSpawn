@@ -41,6 +41,11 @@
 					//intialize functions
 					setNodeContainerHeight(); 
 					$('.node').draggable(nodeOptions);
+					
+					
+					$('#add_btn').draggable({ revert: 'invalid' });
+					
+					
 					initializeToolbox();
 				  
 					function setNodeContainerHeight() {
@@ -121,6 +126,7 @@
 						$( "#content-wrapper .section" ).droppable({
 							tolerance: 'pointer',
 							over: function( event, ui ) {
+							
 								var node = $(ui.draggable);
 								
 								var position = "";
@@ -130,23 +136,27 @@
 									position = "full"
 								if ($(this).hasClass("right"))
 									position = "right"
-									
-								if (node.data('position') != position){
 								
-									node.fadeOut(300);
-									
-									node.removeClass('align-left');
-									node.removeClass('align-full');
-									node.removeClass('align-right');
-									
-									node.addClass('align-'+position);
-									node.data('position',position);
-									
-									node.fadeIn(300);
+								if ($(ui.draggable).hasClass('node')){		
+									if (node.data('position') != position){
+										node.removeClass('align-left');
+										node.removeClass('align-full');
+										node.removeClass('align-right');
+										
+										node.addClass('align-'+position);
+										node.data('position',position);
+									}
+								}else{
+									if (position == "left")
+										$(ui.draggable).css('background-color','lightBlue');
+									if (position == "full")
+										$(ui.draggable).css('background-color','lightGreen');
+									if (position == "right")
+										$(ui.draggable).css('background-color','purple');
 								}
 									
 								
-								console.log(position);
+								
 
 							}
 						});
@@ -185,9 +195,12 @@
 				<aside id = "toolbox">
 					<ul>
 						<li><a class = "save_btn" href="#">Save</a></li>
-						<li><a class = "add_btn" href="#" > <img src =  "<?php echo base_url() ?>assets/img/add-left.png"></a></li>
-						<li id="trash" class="ui-widget-header">
-							<p>Drop here</p>
+						<li id="trash" >
+							<p>Drop here to delete</p>
+						</li>
+						
+						<li id="add_btn">
+							<p>Drag to add</p>
 						</li>
 
 					</ul>
