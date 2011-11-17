@@ -10,7 +10,7 @@ body {
 	margin:0 auto;
 	min-height:400px;
 }
-
+ 
 
 #menu{
 	text-align:center;
@@ -41,6 +41,7 @@ body {
 	position:relative;
 	background: url("../img/dotted-line.png") repeat-y scroll center center transparent;
 	margin-bottom: 100px;
+	min-height: 600px;
 }
 
 #content-wrapper .section{

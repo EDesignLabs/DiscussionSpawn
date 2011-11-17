@@ -23,9 +23,11 @@
 						grid: [ 5,5 ],
 						axis: 'y' ,
 						start:function(event, ui) {
-						mouseStartDragPos = mousePosX;
+							mouseStartDragPos = mousePosX;
+							
+							if ($(this).data('status') != "added")
+								$(this).data('status' , "moved");
 						},
-						
 						stop: function(event, ui) { 
 										var pageHeight = 0;
 									
@@ -43,7 +45,7 @@
 					$('.node').draggable(nodeOptions);
 					
 					
-					$('#add_btn').draggable({ revert: 'invalid' });
+					$('#add_btn').draggable({ revert: 'invalid', grid: [ 5,5 ] });
 					
 					
 					initializeToolbox();
@@ -75,17 +77,47 @@
 						
 						$('.save_btn').click(function() {
 							$('.node').each(function(index) {	
-								$(this).css("border","5px solid red");
-								var that = this;
-
-								$.ajax({
-									url: "thread/update_location/"+$(this).data('entry_id')+"/"+$(this).css('top')+"/"+$(this).data('position'),
-									context: document.body,
-									success: function(){
-									$(that).css("border","none");
-									}
-								});
+								var node = $(this);
+								
+								if (node.data('status') == "moved"){
+									node.css("border","5px solid red");
+									
+	
+									$.ajax({
+										url: "thread/update_location/"+$(this).data('entry_id')+"/"+$(this).css('top')+"/"+$(this).data('position'),
+										context: document.body,
+										success: function(){
+											node.css("border","none");
+											node.data("status" , "current")
+										}
+									});
+								}else if (node.data('status') == "added"){
+									node.css("border","5px solid red");
+									$.ajax({
+										url: "thread/add_new_entry/tester/anothertest/"+node.data("position")+"/"+node.css("top"),
+										context: document.body,
+										success: function(data){
+											node.css("border","none");
+											node.data("status" , "current")
+											node.data("entry_id", data)
+										}
+									});
+								
+								}else if (node.data('status') == "deleted"){
+					
+								  $.ajax({
+								  	url: "thread/delete_entry/"+node.data('entry_id'),
+								  	context: document.body,
+								  	success: function(){}
+								  	
+								  });
+								}
+							
+								
+								
 							});
+							
+							return false;
 						});
 						
 						$('#trash').droppable({
@@ -98,28 +130,7 @@
 								$(ui.draggable).fadeIn();
 							},
 							drop: function( event, ui ) {
-								$( "#dialog-confirm" ).dialog({
-									resizable: false,
-									height:240,
-									width:540,
-									modal: true,
-									buttons: {
-										"Delete this entry": function() {
-										
-											$.ajax({
-											  url: "thread/delete_entry/"+$(ui.draggable).data('entry_id'),
-											  context: document.body,
-											  success: function(){
-												
-											  }
-											});
-											$( this ).dialog( "close" );
-										},
-										Cancel: function() {
-											$( this ).dialog( "close" );
-										}
-									}
-								});
+								$(ui.draggable).data('status','deleted')
 							}
 						});
 						
@@ -158,6 +169,44 @@
 								
 								
 
+							},
+							drop:function( event, ui ){
+								if (!($(ui.draggable).hasClass('node'))){	
+									
+									var position = "";
+									if ($(this).hasClass("left"))
+										position = "left"
+									if ($(this).hasClass("middle"))
+										position = "full"
+									if ($(this).hasClass("right"))
+										position = "right"
+									
+									
+									nodeOffset = $(ui.draggable).offset().top - $('#content-wrapper').offset().top;
+									console.log(nodeOffset);
+									$(ui.draggable).remove();
+									
+									
+									
+									var newNode = '<div style="position:absolute;top: '+nodeOffset+'px;" class="node align-'+position+'"><article>testtter</article></div>';
+									var nodeElement = $(newNode);
+									nodeElement.data("status", "added");
+									nodeElement.data("position", position);
+									
+									nodeElement.draggable(nodeOptions);
+									
+									$('#nodes').append(nodeElement);
+									
+									$('#toolbox').append();
+									
+									var newAddBox = '<li id="add_btn" style=" " class="ui-draggable"><p>Drag to add</p></li>'
+									var ele = $(newAddBox);
+									ele.draggable({ revert: 'invalid', grid: [ 5,5 ] });
+									
+									$('#toolbox ul').append(ele);
+									
+								}
+							
 							}
 						});
 					}
@@ -175,7 +224,7 @@
 			
 				<div id="nodes">
 					<?php if($query): foreach($query as $post):?>
-					<div class = "node align-<?=$post->position;?>" data-entry_id = "<?=$post->entry_id;?>" data-position = "<?=$post->position;?>" style = "top:<?=$post->top;?>px">
+					<div class = "node align-<?=$post->position;?>" data-entry_id = "<?=$post->entry_id;?>" data-status = "current" data-position = "<?=$post->position;?>" style = "top:<?=$post->top;?>px">
 						<article>
 							<div class="post meta">
 								<div class="title"><h2><?php echo $post->entry_name;?></h2></div>

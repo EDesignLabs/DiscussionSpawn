@@ -16,7 +16,7 @@ class thread_model extends CI_Model {
 		return $query->result();
 	}
 	
-	function add_new_entry($name,$body,$position = "left", $top = "300")
+	function add_new_entry($name = "" ,$body = "" ,$position = "left", $top = "300")
 	{
 		if ($this->tank_auth->is_logged_in()) {
 			$data = array(
