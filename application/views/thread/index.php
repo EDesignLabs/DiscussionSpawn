@@ -34,40 +34,7 @@
 												pageHeight = $(this).offset().top;
 										});
 									
-									   $('#content-nodes').css('height', pageHeight+"px" );
-						},
-						drag:function(event, ui) {
-							var that = $(this);
-							var currentPos = $(this).data('position');
-							
-							if (isAnimating == false && mousePosX > 0 && Math.abs(mousePosX-mouseStartDragPos) > 75){
-
-								if (mousePosX > 0 &&  mousePosX < 475){
-									var addClass = 'left';
-								}else if (mousePosX >= 475 &&  mousePosX < 550){ 
-									var addClass = 'full';
-								}else if (mousePosX >= 550 &&  mousePosX < 1000){ 
-									var addClass = 'right';
-								}
-								
-								
-								if (currentPos != addClass){
-									isAnimating = true;
-									$(this).fadeOut(400, function(){
-									
-										that.data('position', addClass);
-										
-										that.removeClass('align-left');
-										that.removeClass('align-full');
-										that.removeClass('align-right');
-										
-										that.addClass('align-'+addClass);
-										
-										that.fadeIn(400);
-										isAnimating = false;
-									});
-								}
-							}
+									   $('#content-wrapper').css('height', pageHeight+"px" );
 						}
 					}
 					
@@ -84,7 +51,7 @@
 								pageHeight = $(this).offset().top;
 						});
 
-						$('#content-nodes').animate({
+						$('#content-wrapper').animate({
 						height: pageHeight
 						}, 0, function() {
 						// Animation complete.
@@ -95,7 +62,7 @@
 					function initializeToolbox (){
 						$('.add_btn').click(function(){
 							var newNode = $('<div style="top: 195px; display: block;" data-position="left" class="node ui-draggable align-left"><article></article></div>');
-							$('#content-nodes').append(newNode);
+							$('#nodes').append(newNode);
 							newNode.draggable(nodeOptions);
 
 							return false;
@@ -150,34 +117,72 @@
 								});
 							}
 						});
+						
+						$( "#content-wrapper .section" ).droppable({
+							tolerance: 'pointer',
+							over: function( event, ui ) {
+								var node = $(ui.draggable);
+								
+								var position = "";
+								if ($(this).hasClass("left"))
+									position = "left"
+								if ($(this).hasClass("middle"))
+									position = "full"
+								if ($(this).hasClass("right"))
+									position = "right"
+									
+								if (node.data('position') != position){
+								
+									node.fadeOut(300);
+									
+									node.removeClass('align-left');
+									node.removeClass('align-full');
+									node.removeClass('align-right');
+									
+									node.addClass('align-'+position);
+									node.data('position',position);
+									
+									node.fadeIn(300);
+								}
+									
+								
+								console.log(position);
+
+							}
+						});
 					}
 				 
 					$(document).mousemove(function(e){
-						mousePosX = e.pageX-$('#content-nodes').position().left;
+						mousePosX = e.pageX-$('#content-wrapper').position().left;
 				    }); 			  
 				}
 				
 			</script>
-
-            <div id="content-nodes">
-				<?php if($query): foreach($query as $post):?>
-				<div class = "node align-<?=$post->position;?>" data-entry_id = "<?=$post->entry_id;?>" data-position = "<?=$post->position;?>" style = "top:<?=$post->top;?>px">
-					<article>
-						<div class="post meta">
-							<div class="title"><h2><?php echo $post->entry_name;?></h2></div>
-							<div class="date"><?php echo mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($post->entry_date));?></div>
-						</div>
-						
-						<p><?=$post->entry_body;?></p>
-						<div style="float:right; font-size:12px; margin:0 5px;">
-							<a href="<?php echo base_url().'post/'.$post->entry_id;?>">Leave comments</a></div>
-						<hr />
-					</article><!-- Close post -->
-				</div>
-				<?php endforeach; else: ?>
-					<h1>no entry yet!</h1>
-				<?php endif; ?>
-				<aside class = "insert">
+			<div id = "content-wrapper">
+				<div class = "left section"></div>
+				<div class = "middle section"></div>
+				<div class = "right section"></div>
+			
+				<div id="nodes">
+					<?php if($query): foreach($query as $post):?>
+					<div class = "node align-<?=$post->position;?>" data-entry_id = "<?=$post->entry_id;?>" data-position = "<?=$post->position;?>" style = "top:<?=$post->top;?>px">
+						<article>
+							<div class="post meta">
+								<div class="title"><h2><?php echo $post->entry_name;?></h2></div>
+								<div class="date"><?php echo mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($post->entry_date));?></div>
+							</div>
+							
+							<p><?=$post->entry_body;?></p>
+							<div style="float:right; font-size:12px; margin:0 5px;">
+								<a href="<?php echo base_url().'post/'.$post->entry_id;?>">Leave comments</a></div>
+							<hr />
+						</article><!-- Close post -->
+					</div>
+					<?php endforeach; else: ?>
+						<h1>no entry yet!</h1>
+					<?php endif; ?>
+				</div><!-- Close nodes -->
+				<aside id = "toolbox">
 					<ul>
 						<li><a class = "save_btn" href="#">Save</a></li>
 						<li><a class = "add_btn" href="#" > <img src =  "<?php echo base_url() ?>assets/img/add-left.png"></a></li>
@@ -187,8 +192,7 @@
 
 					</ul>
 				</aside>
-				
-			</div><!-- Close content -->
+			</div>
 			
 			<div style="display:none">
 				<div id="data">

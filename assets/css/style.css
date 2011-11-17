@@ -36,11 +36,32 @@ body {
 	text-align:center;
 }
 
-#content-nodes{
+#content-wrapper{
 	width: 1024px;
 	position:relative;
 	background: url("../img/dotted-line.png") repeat-y scroll center center transparent;
 	margin-bottom: 100px;
+}
+
+#content-wrapper .section{
+	height: 100%;
+	display:table;
+	float:left;
+}
+
+#content-wrapper .section.middle{
+	width: 6%;
+	background-color:red;
+}
+
+#content-wrapper .section.left{
+	width: 47%;
+	background-color:yellow;
+}
+
+#content-wrapper .section.right{
+	width: 47%;
+	background-color:blue;
 }
 
 .node{
@@ -64,7 +85,7 @@ body {
 	left: 8px;
 }
 
-.insert{
+#toolbox{
     height: 30px;
     left: 50px;
     margin-top: 85px;
@@ -75,7 +96,7 @@ body {
   
 }
 
-.insert li{
+#toolbox li{
 	margin:5px;
 
 }
