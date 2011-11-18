@@ -36,7 +36,7 @@
 						width: 350,
 						modal: true,
 						buttons: {
-							"Create an account": function() {
+							"Create node": function() {
 								var bValid = true;
 								allFields.removeClass( "ui-state-error" );
 
@@ -78,20 +78,10 @@
 				<div id="nodes">
 					<?php if($query): foreach($query as $post):?>
 					<div class = "node align-<?=$post->position;?>" data-entry_id = "<?=$post->entry_id;?>" data-status = "current" data-position = "<?=$post->position;?>" style = "top:<?=$post->top;?>px">
-						<article>
-							<div class="post meta">
-								<div class="title"><h2><?php echo $post->entry_name;?></h2></div>
-								<div class="date"><?php echo mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($post->entry_date));?></div>
-							</div>
-							
-							<p><?=$post->entry_body;?></p>
-							<div style="float:right; font-size:12px; margin:0 5px;">
-								<a href="<?php echo base_url().'post/'.$post->entry_id;?>">Leave comments</a></div>
-							<hr />
-						</article><!-- Close post -->
+						<? $this->load->view('modules/text', array('post' => $post)); ?>
 					</div>
 					<?php endforeach; else: ?>
-						<h1>no entry yet!</h1>
+						<h1>no nodes yet!</h1>
 					<?php endif; ?>
 				</div><!-- Close nodes -->
 				<aside id = "toolbox">
@@ -125,6 +115,14 @@
 				</div>
 			</div>
 			
+			<div class = "type-examples" style="display:none">
+				<?php $post->entry_name = "Error: Missing Content: ENTRY_NAME"; ?>
+				<?php $post->entry_date = "Error: Missing Content: ENTRY_DATE"; ?>
+				<?php $post->entry_body = "Error: Missing Content: entry_body"; ?>
+				
+				<? $this->load->view('modules/text', array('post' => $post)); ?>
+				
+			</div>
 			
         <?php //$this->load->view('thread/footer');?>
     	
