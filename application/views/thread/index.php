@@ -25,6 +25,7 @@
 					
 					$('.node .type-container a').live("click", function(){
 						
+						var node = $(this).closest('.node');
 						var nodeType = $(this).attr("href");
 						
 						var dialogSelector = "#type-examples ." + nodeType + " .dialog";
@@ -36,8 +37,9 @@
 							modal: true,
 							buttons: {
 								"Create": function() {
-									
-									
+								
+									node.empty();
+									node.append($("#type-examples ." + nodeType).clone());
 									
 									$( this ).dialog( "destroy" );
 								},
@@ -90,6 +92,7 @@
 				<?php $post->entry_name = "Error: Missing Content: ENTRY_NAME"; ?>
 				<?php $post->entry_date = "Error: Missing Content: ENTRY_DATE"; ?>
 				<?php $post->entry_body = "Error: Missing Content: entry_body"; ?>
+				<?php $post->entry_date = 1; ?>
 				
 				<!-- Start adding different modules here -->
 				<? $this->load->view('modules/basic-textbox', array('post' => $post, 'hasDialog' => true)); ?>
