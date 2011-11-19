@@ -41,6 +41,16 @@
 									node.empty();
 									node.append($("#type-examples ." + nodeType).clone());
 									
+									$(this).find('input').each(function(){
+
+										node.find("."+$(this).attr('class')).text($(this).val());
+										
+										node.data($(this).attr('class'), $(this).val());
+										node.data("status", "added");
+										node.data("entry_type", nodeType);
+										node.removeClass("empty");
+									});
+									
 									$( this ).dialog( "destroy" );
 								},
 								Cancel: function() {
@@ -66,8 +76,8 @@
 			
 				<div id="nodes">
 					<?php if($query): foreach($query as $post):?>
-					<div class = "node align-<?=$post->position;?>" data-entry_id = "<?=$post->entry_id;?>" data-status = "current" data-position = "<?=$post->position;?>" style = "top:<?=$post->top;?>px">
-						<? $this->load->view('modules/basic-textbox', array('post' => $post)); ?>
+					<div class = "node align-<?=$post->position;?>" data-entry_type = "<?=$post->entry_type;?>" data-entry_id = "<?=$post->entry_id;?>" data-status = "current" data-position = "<?=$post->position;?>" style = "top:<?=$post->top;?>px">
+						<? $this->load->view('modules/'.$post->entry_type , array('post' => $post)); ?>
 					</div>
 					<?php endforeach; else: ?>
 						<h1>no nodes yet!</h1>

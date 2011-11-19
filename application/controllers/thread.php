@@ -134,8 +134,8 @@ class thread extends MY_Controller {
 		}
 	}
 	
-	public function add_new_entry($name,$body, $position, $top){
-		echo $this->thread_model->add_new_entry($name,$body, $position, $top);
+	public function add_new_entry($type, $position, $top, $name,$body ){
+		echo $this->thread_model->add_new_entry($type, $position, $top, $name,$body );
 	}
 	
 	
