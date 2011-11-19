@@ -106,7 +106,8 @@
 				
 				<!-- Start adding different modules here -->
 				<? $this->load->view('modules/basic-textbox', array('post' => $post, 'hasDialog' => true)); ?>
-				
+				<? $this->load->view('modules/title-textbox', array('post' => $post, 'hasDialog' => true)); ?>
+
 			</div>
 			
         <?php //$this->load->view('thread/footer');?>
