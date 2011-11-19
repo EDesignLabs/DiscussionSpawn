@@ -75,22 +75,30 @@ function initializeToolbox (){
 				
 				
 				nodeOffset = $(ui.draggable).offset().top - $('#content-wrapper').offset().top;
-				console.log(nodeOffset);
 				$(ui.draggable).remove();
 				
 				
 				
 				var newNode = '<div style="position:absolute;top: '+nodeOffset+'px;" class="empty node align-'+position+'"> \
-								   <article>  \
+									<div class = "type-container">\
 										Choose box type: \
-										<ul class="entry-types">  \
-											<li><a href = "#" >text</a></li>  \
+										<ul >  \
+										\
 										</ul>  \
-									</article>  \
+									</div> \
 								</div>';
 								
 				var nodeElement = $(newNode);
-				nodeElement.data("status", "added");
+				var typelist = nodeElement.find('ul');
+				
+				$('#type-examples').children().each(function(index){
+				
+					typelist.append('<li><a href = "'+$(this).attr('class')+'" >'+$(this).attr('title')+'</a></li>' );
+					
+				
+				});
+				
+				nodeElement.data("status", "empty");
 				nodeElement.data("position", position);
 				
 				nodeElement.draggable(nodeSettings);
