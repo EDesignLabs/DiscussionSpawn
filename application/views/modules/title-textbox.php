@@ -5,7 +5,7 @@
 		</div>
 	
 		<p class = "entry_body" ><?=$post->entry_body;?></p>
-		<a class = " post-link" href="<?php echo base_url().'post/'.$post->entry_id;?>">Leave comments</a>
+		<a class = "dead_link" href="<?php echo base_url().'post/'.$post->entry_id;?>">Leave comments</a>
 	</article>
 	
 	<?php if (isset($hasDialog) && $hasDialog == true): ?>
