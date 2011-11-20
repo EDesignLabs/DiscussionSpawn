@@ -22,6 +22,7 @@
 					initializeToolbox();
 					setNodeContainerHeight(); 
 
+					//$('a.dead_link').live("click", function(){alert("You will be able comments once leavings the editing veiw.");return false;});
 					
 					$('.node .type-container a').live("click", function(){
 						
