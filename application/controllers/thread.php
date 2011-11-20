@@ -55,8 +55,6 @@ class thread extends MY_Controller {
 		$this->load->library(array('form_validation','session'));
 		
 		//set validation rules
-		$this->form_validation->set_rules('commentor', 'Name', 'required');
-		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 		$this->form_validation->set_rules('comment', 'Comment', 'required');
 		
 		if($this->thread_model->get_post($id))
@@ -75,7 +73,7 @@ class thread extends MY_Controller {
 			else
 			{
 				//if valid
-				$name = $this->input->post('commentor');
+				$name = $this->tank_auth->get_username();
 				$email = strtolower($this->input->post('email'));
 				$comment = $this->input->post('comment');
 				$post_id = $this->input->post('post_id');
