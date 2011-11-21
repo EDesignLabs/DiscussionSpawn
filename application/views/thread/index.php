@@ -15,6 +15,8 @@
 
 				function init() {
 				
+				
+				
 					$('.node').draggable(nodeSettings);
 					$('#add_btn').draggable({ revert: 'invalid', grid: [ 5,5 ] });
 					

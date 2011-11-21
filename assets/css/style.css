@@ -127,7 +127,7 @@ body {
 
 }
 
-article{
+article, .type-container{
     background: none repeat scroll 0 0 #FFFFFF;
 
     padding: 10px;
@@ -136,14 +136,14 @@ article{
 	
 }
 
-.align-right article{
+.align-right article, .align-right .type-container{
     float: left;
     margin-left: 56px;
 
 }
 
 
-.align-left article{
+.align-left article, .align-left .type-container{
     float: right;
     margin-right: 56px;
 
@@ -159,16 +159,8 @@ article{
 	background:#CCC;
 }
 
-.type-container{
-    background: none repeat scroll 0 0 #FFFFFF;
-    padding: 10px;
 
-}
 
-.align-right .type-container{
-	float: right;
-
-}
 
 /* Font Style */
 font{
@@ -204,4 +196,13 @@ p{
 
 .success{
 	color:#0F0;
+}
+
+.level-1{
+	margin-left:30px;
+
+}
+.level-2{
+	margin-left:60px;
+
 }

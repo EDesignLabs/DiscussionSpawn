@@ -33,10 +33,11 @@ class thread_model extends CI_Model {
 		}
 	}
 	
-	function add_new_comment($post_id,$commentor,$email,$comment)
+	function add_new_comment($post_id,$parent_id,$commentor,$email,$comment)
 	{
 		$data = array(
 			'entry_id'=>$post_id,
+			'comment_parent'=>$parent_id,
 			'comment_name'=>$commentor,
 			'comment_email'=>$email,
 			'comment_body'=>$comment,

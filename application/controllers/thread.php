@@ -46,16 +46,36 @@ class thread extends MY_Controller {
 	//this function will retrive a post
 	public function post($id)
 	{
+		$this->load->helper('threaded_comments');
 		$data['query'] = $this->thread_model->get_post($id);
 		$data['comments'] = $this->thread_model->get_post_comment($id);
 		$data['post_id'] = $id;
 		$data['total_comments'] = $this->thread_model->total_comments($id);
+		
+		//get comments and format them
+		$comments = $this->thread_model->get_post_comment($id); 
+		$comments_arr =  array();
+		
+		if($comments) 
+			foreach($comments as $row){
+				if ($row->comment_parent == 0)
+					$row->comment_parent = NULL;
+			
+				$comments_arr[] = array('id'=>$row->comment_id, 'parent_id'=>$row->comment_parent, 'text'=>$row->comment_body ,  'author'=>$row->comment_name , 'date' =>  mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($row->comment_date)));
+			
+			}
+		
+		$threaded_comments = new Threaded_comments($comments_arr);
+		$data['formated_comments'] = $threaded_comments->print_comments();
+		
 		
 		$this->load->helper('form');
 		$this->load->library(array('form_validation','session'));
 		
 		//set validation rules
 		$this->form_validation->set_rules('comment', 'Comment', 'required');
+		
+
 		
 		if($this->thread_model->get_post($id))
 		{
@@ -69,6 +89,7 @@ class thread extends MY_Controller {
 			{
 				//if not valid
 				$this->load->view('thread/post',$data);
+				
 			}
 			else
 			{
@@ -77,9 +98,10 @@ class thread extends MY_Controller {
 				$email = strtolower($this->input->post('email'));
 				$comment = $this->input->post('comment');
 				$post_id = $this->input->post('post_id');
+				$parent_id = $this->input->post('parent_id');
 				
-				$this->thread_model->add_new_comment($post_id,$name,$email,$comment);
-				$this->session->set_flashdata('message', '1 new comment added!');
+				$this->thread_model->add_new_comment($post_id,$parent_id,$name,$email,$comment);
+				$this->session->set_flashdata('message', '1 new comment added! to '.$parent_id);
 				redirect('post/'.$id);
 			}
 		}
