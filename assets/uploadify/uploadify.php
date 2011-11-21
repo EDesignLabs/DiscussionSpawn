@@ -26,7 +26,7 @@ THE SOFTWARE.
 if (!empty($_FILES)) {
 	$tempFile = $_FILES['Filedata']['tmp_name'];
 	$targetPath = $_SERVER['DOCUMENT_ROOT'] . $_REQUEST['folder'] . '/';
-	$targetFile =  str_replace('//','/',$targetPath) .uniqid(). $_FILES['Filedata']['name'];
+	$targetFile =  str_replace('//','/',$targetPath) .uniqid(). urlencode($_FILES['Filedata']['name']);
 	
 	 $fileTypes  = "jpg;gif;png";
 	 //$fileTypes  = str_replace(';','|',$fileTypes);
