@@ -38,6 +38,30 @@
 							height: 300,
 							width: 350,
 							modal: true,
+							create: function(event, ui) {
+					
+								  var fileUpload = $(this).find('.file_upload');
+								   console.log( fileUpload);
+								  
+								  var uniqueId = Math.floor(Math.random()*999999);
+								  
+								  fileUpload.attr('id', "file"+uniqueId );
+					
+								
+					
+								  $(this).find('#file'+uniqueId).uploadify({
+									'uploader'  : 'assets/uploadify/uploadify.swf',
+									'script'    : 'assets/uploadify/uploadify.php',
+									'cancelImg' : 'assets/uploadify/cancel.png',
+									'folder'    : 'assets/uploads',
+									'auto'      : true,
+									'fileExt'     : '*.jpg;*.gif;*.png',
+									'onComplete': function(event, ID, fileObj, response, data) {
+								      console.log(response);
+								    }
+								  });
+							
+							},
 							buttons: {
 								"Create": function() {
 								
@@ -62,13 +86,10 @@
 								}
 							},
 						});
+
+						
 						return false;
 					});
-				
-	
-
-
-					
 				}
 				
 			</script>
@@ -111,13 +132,12 @@
 				<!-- Start adding different modules here -->
 				<? $this->load->view('modules/basic-textbox', array('post' => $post, 'hasDialog' => true)); ?>
 				<? $this->load->view('modules/title-textbox', array('post' => $post, 'hasDialog' => true)); ?>
+				<? $this->load->view('modules/imagebox', array('post' => $post, 'hasDialog' => true)); ?>
 
 			</div>
 			
         <?php //$this->load->view('thread/footer');?>
     	
     </div><!-- Close container -->
-	
-	<input id="file_upload" name="file_upload" type="file" />
 </body>
 </html>

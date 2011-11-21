@@ -16,17 +16,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-  $('#file_upload').uploadify({
-	'uploader'  : 'assets/uploadify/uploadify.swf',
-	'script'    : 'assets/uploadify/uploadify.php',
-	'cancelImg' : 'assets/uploadify/cancel.png',
-	'folder'    : 'assets/uploads',
-	'auto'      : true,
-	'fileExt'     : '*.jpg;*.gif;*.png',
-	'onComplete': function(event, ID, fileObj, response, data) {
-      console.log(response);
-    }
-  });
+
 });
 </script>
 
