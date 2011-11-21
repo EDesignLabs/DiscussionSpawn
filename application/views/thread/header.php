@@ -11,6 +11,28 @@
 <script type="text/javascript" src="<?=base_url()?>assets/js/functions.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assets/js/globals.js"></script>
 
+<script type="text/javascript" src="<?=base_url()?>assets/uploadify/swfobject.js"></script>
+<script type="text/javascript" src="<?=base_url()?>assets/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#file_upload').uploadify({
+	'uploader'  : 'assets/uploadify/uploadify.swf',
+	'script'    : 'assets/uploadify/uploadify.php',
+	'cancelImg' : 'assets/uploadify/cancel.png',
+	'folder'    : 'assets/uploads',
+	'auto'      : true,
+	'fileExt'     : '*.jpg;*.gif;*.png',
+	'onComplete': function(event, ID, fileObj, response, data) {
+      console.log(response);
+    }
+  });
+});
+</script>
+
+
+
+
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/reset.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css" type="text/css" />
 

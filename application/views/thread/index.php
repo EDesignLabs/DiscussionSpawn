@@ -76,7 +76,8 @@
 				<div class = "left section"></div>
 				<div class = "middle section"></div>
 				<div class = "right section"></div>
-			
+			    
+
 				<div id="nodes">
 					<?php if($query): foreach($query as $post):?>
 					<div class = "node align-<?=$post->position;?>" data-entry_type = "<?=$post->entry_type;?>" data-entry_id = "<?=$post->entry_id;?>" data-status = "current" data-position = "<?=$post->position;?>" style = "top:<?=$post->top;?>px">
@@ -116,5 +117,7 @@
         <?php //$this->load->view('thread/footer');?>
     	
     </div><!-- Close container -->
+	
+	<input id="file_upload" name="file_upload" type="file" />
 </body>
 </html>
