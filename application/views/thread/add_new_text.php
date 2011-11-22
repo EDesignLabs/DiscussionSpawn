@@ -7,11 +7,11 @@
             
             
             <p><strong>Title</strong>:<br />
-			<input type="text" name="entry_name" size="60" /></p>
+			<input type="text" name="field1" size="60" /></p>
             <br clear="all" />
             
             <p><strong>Body</strong>: (HTML mode)</p>
-            <textarea rows="6" cols="80%" name="entry_body" style="resize:none;"></textarea>
+            <textarea rows="6" cols="80%" name="field2" style="resize:none;"></textarea>
             <br clear="all" />
 
             

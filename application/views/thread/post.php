@@ -30,11 +30,11 @@
             <?php foreach($query as $post):?>
             <div class="post">
                 <div class="post meta">
-                	<div class="title"><h2><?php echo $post->entry_name;?></h2></div>
+                	<div class="title"><h2><?php echo $post->field1;?></h2></div>
                     <div class="date"><?php echo mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($post->entry_date));?></div>
                 </div>
                 <br clear="all" />
-                <p><?php echo $post->entry_body;?></p>
+                <p><?php echo $post->field2;?></p>
                 <div style="float:right; font-size:12px; margin:0 5px;"><a>
 					<?php if($total_comments > 1)
 							{echo $total_comments.' comments';}

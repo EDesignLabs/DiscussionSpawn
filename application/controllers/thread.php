@@ -82,7 +82,7 @@ class thread extends MY_Controller {
 			foreach($this->thread_model->get_post($id) as $row)
 			{
 				//set page title
-				$data['title'] = $row->entry_name;
+				$data['title'] = $row->field1;
 			}
 			
 			if ($this->form_validation->run() == FALSE)
@@ -118,8 +118,8 @@ class thread extends MY_Controller {
 		$this->load->library(array('form_validation','session'));
 		
 		//set validation rules
-		$this->form_validation->set_rules('entry_name', 'Title', 'required|max_length[200]');
-		$this->form_validation->set_rules('entry_body', 'Body', 'required');
+		$this->form_validation->set_rules('field1', 'Title', 'required|max_length[200]');
+		$this->form_validation->set_rules('field2', 'Body', 'required');
 		
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -129,8 +129,8 @@ class thread extends MY_Controller {
 		else
 		{
 			//if valid
-			$name = $this->input->post('entry_name');
-			$body = $this->input->post('entry_body');
+			$name = $this->input->post('field1');
+			$body = $this->input->post('field2');
 			$position = 'full';
 			$this->thread_model->add_new_entry($name,$body, $position);
 			$this->session->set_flashdata('message', '1 new post added at position '.$position.' !' );

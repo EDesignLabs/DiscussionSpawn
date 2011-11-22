@@ -21,8 +21,8 @@ class thread_model extends CI_Model {
 		if ($this->tank_auth->is_logged_in()) {
 			$data = array(
 				'entry_type' => $type,
-				'entry_name' => $name,
-				'entry_body' => $body,
+				'field1' => $name,
+				'field2' => $body,
 				'author_id' => $this->tank_auth->get_user_id(),
 				'position' => $position,
 				'top' => $top

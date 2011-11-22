@@ -98,9 +98,9 @@
 			</div>
 			
 			<div id = "type-examples" style="display:none">
-				<?php $post->entry_name = "Error: Missing Content: ENTRY_NAME"; ?>
+				<?php $post->field1 = "Error: Missing Content: field1"; ?>
 				<?php $post->entry_date = "Error: Missing Content: ENTRY_DATE"; ?>
-				<?php $post->entry_body = "Error: Missing Content: entry_body"; ?>
+				<?php $post->field2 = "Error: Missing Content: field2"; ?>
 				<?php $post->entry_date = 1; ?>
 				
 				<!-- Start adding different modules here -->

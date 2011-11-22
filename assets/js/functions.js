@@ -20,7 +20,7 @@ function save(){
 				node.css("border","5px solid red");
 				console.log(node.data("entry_type"));
 				$.ajax({
-					url: "thread/add_new_entry/"+node.data("entry_type")+"/"+node.data("position")+"/"+node.css("top")+"/"+node.data("entry_title")+"/"+node.data("entry_body"),
+					url: "thread/add_new_entry/"+node.data("entry_type")+"/"+node.data("position")+"/"+node.css("top")+"/"+node.data("field1")+"/"+node.data("field2"),
 					context: document.body,
 					success: function(data){
 						node.css("border","none");
