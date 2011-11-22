@@ -31,7 +31,7 @@
 						var node = $(this).closest('.node');
 						var nodeType = $(this).attr("href");
 						
-						var dialogSelector = "#type-examples ." + nodeType + " .dialog";
+						var dialogSelector = "#type-examples ." + nodeType;
 						
 						$(dialogSelector).clone().dialog({
 							autoOpen: true,
@@ -66,22 +66,31 @@
 								"Create": function() {
 								
 									node.empty();
-									node.append($("#type-examples ." + nodeType).clone());
+									node.append('<img src = "assets/img/loader.gif">');
+									var sendData = {};
+									sendData['template'] = nodeType;
 									
 									$(this).find('input').each(function(){
-
-										node.find("."+$(this).attr('class')).text($(this).val());
-										
+										sendData[$(this).attr('class')] = $(this).val();
 										node.data($(this).attr('class'), $(this).val());
 										node.data("status", "added");
 										node.data("entry_type", nodeType);
 										node.removeClass("empty");
 									});
+																		
+									$.ajax({
+										url: "thread/get_template",
+										type: 'POST',
+										data: sendData,
+										success: function(data){
+											node.empty();
+											node.append(data);
+										}
+									});
 									
 									$( this ).dialog( "destroy" );
 								},
 								Cancel: function() {
-									
 									$( this ).dialog( "destroy" );
 								}
 							},
@@ -123,16 +132,11 @@
 				</aside>
 			</div>
 			
-			<div id = "type-examples" style="display:none">
-				<?php $post->field1 = "Error: Missing Content: field1"; ?>
-				<?php $post->entry_date = "Error: Missing Content: ENTRY_DATE"; ?>
-				<?php $post->field2 = "Error: Missing Content: field2"; ?>
-				<?php $post->entry_date = 1; ?>
-				
+			<div id = "type-examples" style="display:none">				
 				<!-- Start adding different modules here -->
-				<? $this->load->view('modules/basic-textbox', array('post' => $post, 'hasDialog' => true)); ?>
-				<? $this->load->view('modules/title-textbox', array('post' => $post, 'hasDialog' => true)); ?>
-				<? $this->load->view('modules/imagebox', array('post' => $post, 'hasDialog' => true)); ?>
+				<? $this->load->view('dialogs/basic-textbox'); ?>
+				<? $this->load->view('dialogs/title-textbox'); ?>
+				<? $this->load->view('dialogs/imagebox'); ?>
 
 			</div>
 			

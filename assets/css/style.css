@@ -72,13 +72,17 @@ body {
 	cursor: move;
 }
 .align-left{
-	background:url("../img/arrow-circle-lr.png") no-repeat scroll right center transparent;
-	left:8px;
+    background: url("../img/arrow-circle-lr.png") no-repeat scroll right center transparent;
+    left: -49px;
+    padding-right: 57px;
+    text-align: right;
 }
 
 .align-right{
-	right: 9px;
-	background:url("../img/arrow-circle-rl.png") no-repeat scroll left center transparent;
+    background: url("../img/arrow-circle-rl.png") no-repeat scroll left center transparent;
+    right: -49px;
+    padding-left: 57px;
+    text-align: left;
 }
 
 .align-full{
@@ -129,7 +133,7 @@ body {
 
 article, .type-container{
     background: none repeat scroll 0 0 #FFFFFF;
-
+	text-align:left;
     padding: 10px;
 
 	
@@ -138,14 +142,14 @@ article, .type-container{
 
 .align-right article, .align-right .type-container{
     float: left;
-    margin-left: 56px;
+
 
 }
 
 
 .align-left article, .align-left .type-container{
     float: right;
-    margin-right: 56px;
+
 
 }
 

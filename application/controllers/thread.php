@@ -154,6 +154,24 @@ class thread extends MY_Controller {
 		echo "hello success: Deleted Enrty";
 	
 	}
+	
+	public function get_template(){
+		
+		$post->entry_id = "";
+		$post->field1 = "No feild1";
+		$post->field2 = "No feild2";
+		
+		if (!($this->input->post('field1')==false))
+			$post->field1 = $this->input->post('field1');
+			
+		if (!($this->input->post('field2')==false))
+			$post->field2 = $this->input->post('field2');
+		
+		if ($this->input->post('template'))
+			$this->load->view('modules/'.$this->input->post('template'), array('post' => $post));
+		else
+			echo "THERE IS NO TEMPLATE WITH THAT NAME.";
+	}
 }
 
 /* End of file thread.php */

@@ -92,10 +92,7 @@ function initializeToolbox (){
 				var typelist = nodeElement.find('ul');
 				
 				$('#type-examples').children().each(function(index){
-				
-					typelist.append('<li><a href = "'+$(this).attr('class')+'" >'+$(this).attr('title')+'</a></li>' );
-					
-				
+					typelist.append('<li><a href = "'+$(this).data('type')+'" >'+$(this).attr('title')+'</a></li>' );
 				});
 				
 				nodeElement.data("status", "empty");
