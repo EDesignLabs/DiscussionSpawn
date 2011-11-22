@@ -4,6 +4,6 @@
 			<div class="field1"><?php echo $post->field2;?></div>
 		</div>
 
-		<a class = "dead_link" href="<?php echo base_url().'post/'.$post->entry_id;?>">Leave comments</a>
+		<a class = "" href="<?php echo base_url().'post/'.$post->entry_id;?>">Leave comments</a>
 	</article>
 </div>
