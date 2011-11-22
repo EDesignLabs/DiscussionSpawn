@@ -24,7 +24,7 @@
 					initializeToolbox();
 					setNodeContainerHeight(); 
 
-					//$('a.dead_link').live("click", function(){alert("You will be able comments once leavings the editing veiw.");return false;});
+					$('a.dead_link').live("click", function(){alert("Cannot veiw this page until saved");return false;});
 					
 					$('.node .type-container a').live("click", function(){
 						
@@ -39,9 +39,8 @@
 							width: 350,
 							modal: true,
 							create: function(event, ui) {
-					
+								  var myDialog = $(this);
 								  var fileUpload = $(this).find('.file_upload');
-								   console.log( fileUpload);
 								  
 								  var uniqueId = Math.floor(Math.random()*999999);
 								  
@@ -57,7 +56,9 @@
 									'auto'      : true,
 									'fileExt'     : '*.jpg;*.gif;*.png',
 									'onComplete': function(event, ID, fileObj, response, data) {
-								      console.log(response);
+								      //console.log(response);
+									  console.log( myDialog);
+									  myDialog.find('.field1').val(response);
 								    }
 								  });
 							

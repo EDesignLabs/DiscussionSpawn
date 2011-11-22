@@ -26,7 +26,8 @@ THE SOFTWARE.
 if (!empty($_FILES)) {
 	$tempFile = $_FILES['Filedata']['tmp_name'];
 	$targetPath = $_SERVER['DOCUMENT_ROOT'] . $_REQUEST['folder'] . '/';
-	$targetFile =  str_replace('//','/',$targetPath) .uniqid(). urlencode($_FILES['Filedata']['name']);
+	$filename = uniqid(). urlencode($_FILES['Filedata']['name']);
+	$targetFile =  str_replace('//','/',$targetPath) . $filename;
 	
 	 $fileTypes  = "jpg;gif;png";
 	 //$fileTypes  = str_replace(';','|',$fileTypes);
@@ -38,7 +39,7 @@ if (!empty($_FILES)) {
 		// mkdir(str_replace('//','/',$targetPath), 0755, true);
 		
 		move_uploaded_file($tempFile,$targetFile);
-		echo str_replace($_SERVER['DOCUMENT_ROOT'],'',$targetFile);
+		echo $filename;
 	 } else {
 	 	echo 'Invalid file type :     '.$fileParts['extension'];
 	 }

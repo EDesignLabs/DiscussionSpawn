@@ -26,6 +26,8 @@ function save(){
 						node.css("border","none");
 						node.data("status" , "current")
 						node.data("entry_id", data)
+						node.find('.dead_link').attr('href',node.find('.dead_link').attr("href")+data);
+						node.find('.dead_link').removeClass('dead_link');
 					}
 				});
 			
