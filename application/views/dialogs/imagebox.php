@@ -3,7 +3,7 @@
 	<form>
 		<fieldset>
 			<label for="name">Title</label>
-			<input type="text" name="name" class="field2" value = "face" class="text ui-widget-content ui-corner-all" />
+			<input type="text"  class="field2" value = "" class="text ui-widget-content ui-corner-all" />
 		
 			<label for="name">Image</label>
 			<input class = "file_upload" id="file_upload<?php echo uniqid();?>" name="file_upload" type="file" />

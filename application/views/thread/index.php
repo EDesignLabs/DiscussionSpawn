@@ -57,7 +57,7 @@
 									'fileExt'     : '*.jpg;*.gif;*.png',
 									'onComplete': function(event, ID, fileObj, response, data) {
 								      //console.log(response);
-									  console.log( myDialog);
+									  //console.log( myDialog);
 									  myDialog.find('.field1').val(response);
 								    }
 								  });
