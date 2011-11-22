@@ -115,7 +115,7 @@
 						<? $this->load->view('modules/'.$post->entry_type , array('post' => $post)); ?>
 					</div>
 					<?php endforeach; else: ?>
-						<h1>no nodes yet!</h1>
+						<!--NO NODEs -->
 					<?php endif; ?>
 				</div><!-- Close nodes -->
 				<aside id = "toolbox">
