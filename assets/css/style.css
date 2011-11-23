@@ -59,22 +59,21 @@ body {
 
 #content-wrapper .section.middle{
 	width: 5%;
-	border: 1px solid red;
+	border-bottom: 1px solid red;
 }
 
 #content-wrapper .section.left{
 	width: 47%;
-	border: 1px solid yellow;
+	border-bottom: 1px solid yellow;
 }
 
 #content-wrapper .section.right{
 	width: 47%;
-	border: 1px solid blue;
+	border-bottom: 1px solid blue;
 }
 
 .node{
 	width: 512px;
-	background-color: green;
 	position: absolute;
 	cursor: move;
 }
@@ -140,22 +139,20 @@ body {
 article, .type-container{
     background: none repeat scroll 0 0 #FFFFFF;
 	text-align:left;
-    padding: 10px;
-	box-shadow: -6px 4px 6px #ddd;
-	background: url("../img/grad.png") repeat-x scroll center bottom #FFFFFF;
-	
+    padding: 20px;
+	border-radius: 3px 3px 3px 3px;
+	border-bottom: 1px solid #DFDFDF;
+	box-shadow: -1px 1px 52px #E1E1E1;
 }
 
 .align-right article, .align-right .type-container{
     float: left;
-	box-shadow:16px 1px 13px #ddd;
 
 }
 
 
 .align-left article, .align-left .type-container{
     float: right;
-	box-shadow:-16px 1px 13px #ddd;
 
 }
 
