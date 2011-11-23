@@ -126,7 +126,7 @@
 						</li>
 						
 						<li id="add_btn">
-							<p>Drag to add</p>
+							
 						</li>
 
 					</ul>

@@ -126,9 +126,9 @@ body {
 }
 
 #add_btn{
-	width:50px; 
-	height:50px; 
-	background-color:lightGray;
+    background: url("../img/add.png") no-repeat scroll center bottom transparent;
+    height: 65px;
+    width: 66px;
 }
 
 

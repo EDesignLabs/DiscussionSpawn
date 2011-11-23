@@ -51,11 +51,11 @@ function initializeToolbox (){
 				}
 			}else{
 				if (position == "left")
-					$(ui.draggable).css('background-color','lightBlue');
+					$(ui.draggable).css('background',' url("assets/img/add-left.png") no-repeat scroll center bottom transparent');
 				if (position == "full")
-					$(ui.draggable).css('background-color','lightGreen');
+					$(ui.draggable).css('background',' url("assets/img/add-center.png") no-repeat scroll center bottom transparent');
 				if (position == "right")
-					$(ui.draggable).css('background-color','purple');
+					$(ui.draggable).css('background',' url("assets/img/add-right.png") no-repeat scroll center bottom transparent');
 			}
 				
 			
@@ -104,7 +104,7 @@ function initializeToolbox (){
 				
 				$('#toolbox').append();
 				
-				var newAddBox = '<li id="add_btn" style=" " class="ui-draggable"><p>Drag to add</p></li>'
+				var newAddBox = '<li id="add_btn" style=" " class="ui-draggable"></li>'
 				var ele = $(newAddBox);
 				ele.draggable({ revert: 'invalid', grid: [ 5,5 ] });
 				
