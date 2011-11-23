@@ -8,7 +8,7 @@ body {
 
 #container{
 	width:1024px;
-	margin:0 auto;
+	margin:30px auto 0;
 	min-height:400px;
 }
  
@@ -19,22 +19,33 @@ body {
  
  }
 
+#header{
+    background: url("../img/menu.png") repeat scroll center center transparent;
+    padding: 15px 0;
+    width: 100%;
+    box-shadow: 1px -2px 3px #A0A0A0 inset;
+}
+
 #menu{
-	text-align:center;
-	margin:25px 0;
+    height: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: 981px;
 }
 
 #menu ol{
-	text-align:center;
-	margin:0 auto;
-	padding-bottom:5px;
-	width:inherit;
+
 }
 
 #menu li a{
 	float:left;
 	display:block;
 	margin:0 10px;
+}
+
+.user{
+	float:right;
 }
 
 #footer{

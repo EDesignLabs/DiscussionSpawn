@@ -1,15 +1,8 @@
 <?php $this->load->view('thread/header');?>
 
 <body>
-    <div id="container">
-    	<div id="header">
-			Welcome <?=$username?>
-        </div><!-- Close header -->
-        
-        
-        	
-            <?php $this->load->view('thread/menu');?>
-			
+	<?php $this->load->view('thread/menu');?>
+    <div id="container">        				
 			<script type="text/javascript">
 				$( init );
 
