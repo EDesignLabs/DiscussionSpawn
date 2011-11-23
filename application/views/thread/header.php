@@ -19,6 +19,6 @@
 <link media="all" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css" rel="stylesheet">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/reset.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css" type="text/css" />
-
+<link rel="stylesheet" href="<?php echo base_url();?>assets/css/modules.css" type="text/css" />
 
 </head>
