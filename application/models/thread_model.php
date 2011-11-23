@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 	/**
+	 
 	 * @author Pisyek Kumar
 	 * @email pisyek@gmail.com
 	 * @link http://www.pisyek.com
@@ -16,17 +17,16 @@ class thread_model extends CI_Model {
 		return $query->result();
 	}
 	
-	function add_new_entry($type, $position = "left", $top = "300", $name = "" ,$body = "")
+	function add_new_entry($type, $position = "left", $top = "300", $field1 = "" ,$field2 = "")
 	{
 		if ($this->tank_auth->is_logged_in()) {
 			$data = array(
 				'entry_type' => $type,
-				'field1' => $name,
-				'field2' => $body,
+				'field1' => $field1,
+				'field2' => $field2,
 				'author_id' => $this->tank_auth->get_user_id(),
 				'position' => $position,
 				'top' => $top
-				
 			);
 			$this->db->insert('entry',$data);
 			return $this->db->insert_id();

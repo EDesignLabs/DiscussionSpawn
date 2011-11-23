@@ -20,8 +20,15 @@ function save(){
 				node.css("border","5px solid red");
 				console.log(node.data("entry_type"));
 				$.ajax({
-					url: "thread/add_new_entry/"+node.data("entry_type")+"/"+node.data("position")+"/"+node.css("top")+"/"+node.data("field1")+"/"+node.data("field2"),
+					url: "thread/add_new_entry/",
 					context: document.body,
+					type: 'POST',
+					data: { entry_type: node.data("entry_type"), 
+							position: node.data("position"),
+							top: node.css("top"), 
+							field1: node.data("field1"), 
+							field2: node.data("field2"),  
+						  },
 					success: function(data){
 						node.css("border","none");
 						node.data("status" , "current")

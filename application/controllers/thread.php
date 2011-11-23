@@ -138,8 +138,30 @@ class thread extends MY_Controller {
 		}
 	}
 	
-	public function add_new_entry($type, $position, $top, $name,$body ){
-		echo $this->thread_model->add_new_entry($type, $position, $top, $name,$body );
+	public function add_new_entry(){
+		
+		$top = "";
+		$position = "";
+		$entry_type = "";	
+		$field1 = "";
+		$field2 = "";
+		
+		if (!($this->input->post('field1')==false))
+			$field1 = $this->input->post('field1');
+			
+		if (!($this->input->post('field2')==false))
+			$field2 = $this->input->post('field2');
+			
+		if (!($this->input->post('top')==false))
+			$top = $this->input->post('top');
+			
+		if (!($this->input->post('position')==false))
+			$position = $this->input->post('position');
+			
+		if (!($this->input->post('entry_type')==false))
+			$entry_type = $this->input->post('entry_type');
+
+		echo $this->thread_model->add_new_entry($entry_type, $position, $top, $field1,$field2 );
 	}
 	
 	
