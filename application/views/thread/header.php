@@ -14,6 +14,9 @@
 <script type="text/javascript" src="<?=base_url()?>assets/uploadify/swfobject.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assets/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
 
+<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+
+
 <script type="text/javascript">
 $(document).ready(function() {
 

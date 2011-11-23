@@ -3,6 +3,7 @@
 body {
 	background:#ffffff url('../img/bg.png') repeat right top;
 	overflow-y: scroll; 
+	font-family: sans-serif;
 }
 
 #container{
@@ -11,6 +12,12 @@ body {
 	min-height:400px;
 }
  
+ h1{
+	font-family: 'Questrial', sans-serif;
+	font-size:36px;
+ 
+ 
+ }
 
 #menu{
 	text-align:center;
@@ -51,18 +58,18 @@ body {
 }
 
 #content-wrapper .section.middle{
-	width: 6%;
-	background-color:red;
+	width: 5%;
+	border: 1px solid red;
 }
 
 #content-wrapper .section.left{
 	width: 47%;
-	background-color:yellow;
+	border: 1px solid yellow;
 }
 
 #content-wrapper .section.right{
 	width: 47%;
-	background-color:blue;
+	border: 1px solid blue;
 }
 
 .node{
@@ -109,13 +116,13 @@ body {
 
 #toolbox li{
 	margin:5px;
-
+	float: right;
 }
 
 #trash{
-	width:50px; 
-	height:50px; 
-	background-color:lightPink;
+    background: url("../img/trash.png") no-repeat scroll center bottom transparent;
+    height: 65px;
+    width: 66px;
 }
 
 #add_btn{
@@ -127,29 +134,28 @@ body {
 
 
 #trash.drophover{
-	border:1px solid red;
-
+	background: url("../img/empty-trash.png") no-repeat scroll center bottom transparent;
 }
 
 article, .type-container{
     background: none repeat scroll 0 0 #FFFFFF;
 	text-align:left;
     padding: 10px;
-
-	
+	box-shadow: -6px 4px 6px #ddd;
+	background: url("../img/grad.png") repeat-x scroll center bottom #FFFFFF;
 	
 }
 
 .align-right article, .align-right .type-container{
     float: left;
-
+	box-shadow:16px 1px 13px #ddd;
 
 }
 
 
 .align-left article, .align-left .type-container{
     float: right;
-
+	box-shadow:-16px 1px 13px #ddd;
 
 }
 

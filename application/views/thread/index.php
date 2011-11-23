@@ -122,7 +122,7 @@
 					<ul>
 						<li><a class = "save_btn" href="#">Save</a></li>
 						<li id="trash" >
-							<p>Drop here to delete</p>
+							
 						</li>
 						
 						<li id="add_btn">
