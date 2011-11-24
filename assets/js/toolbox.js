@@ -6,7 +6,7 @@ function initializeToolbox (){
 		var newNode = $('<div style="top: 195px; display: block;" data-position="left" class="node ui-draggable align-left"><article></article></div>');
 		$('#nodes').append(newNode);
 		newNode.draggable(nodeSettings);
-
+		setButtonUnknown();
 		return false;
 	});
 							
@@ -23,13 +23,14 @@ function initializeToolbox (){
 		},
 		drop: function( event, ui ) {
 			$(ui.draggable).data('status','deleted')
+			setButtonUnknown();
 		}
 	});
 	
 	$( "#content-wrapper .section" ).droppable({
 		tolerance: 'pointer',
 		over: function( event, ui ) {
-		
+			
 			var node = $(ui.draggable);
 			
 			var position = "";

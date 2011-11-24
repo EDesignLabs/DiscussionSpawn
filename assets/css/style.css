@@ -124,6 +124,13 @@ body {
   
 }
 
+.save_btn{
+    background: url("../img/save.png") no-repeat scroll center bottom transparent;
+    height: 65px;
+    width: 66px;
+	display:block;
+}
+
 #toolbox li{
 	margin:5px;
 	float: right;
@@ -139,6 +146,7 @@ body {
     background: url("../img/add.png") no-repeat scroll center bottom transparent;
     height: 65px;
     width: 66px;
+	cursor:move;
 }
 
 

@@ -1,6 +1,7 @@
 
 // Save Function
 function save(){
+		
 		$('.node').each(function(index) {	
 			var node = $(this);
 			
@@ -68,4 +69,9 @@ function setNodeContainerHeight() {
 	}, 0, function() {
 	// Animation complete.
 	});
+}
+
+function setButtonUnknown(){
+	$('.save_btn').css('background','url("assets/img/unsaved.png") no-repeat scroll center bottom transparent');
+
 }

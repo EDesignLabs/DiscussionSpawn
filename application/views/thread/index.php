@@ -113,7 +113,7 @@
 				</div><!-- Close nodes -->
 				<aside id = "toolbox">
 					<ul>
-						<li><a class = "save_btn" href="#">Save</a></li>
+						<li><a class = "save_btn" href="#"></a></li>
 						<li id="trash" >
 							
 						</li>
