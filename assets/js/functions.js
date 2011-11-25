@@ -22,7 +22,7 @@ function save(){
 				});
 			}else if (node.data('status') == "added"){
 				node.css("border","5px solid red");
-				console.log(node.data("entry_type"));
+				//console.log(node.data("entry_type"));
 				$.ajax({
 					url: "thread/add_new_entry/",
 					context: document.body,
@@ -32,6 +32,7 @@ function save(){
 							top: node.css("top"), 
 							field1: node.data("field1"), 
 							field2: node.data("field2"),  
+							field3: node.data("field3"), 
 						  },
 					success: function(data){
 						node.css("border","none");

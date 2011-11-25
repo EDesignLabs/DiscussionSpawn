@@ -70,8 +70,16 @@
 									sendData['template'] = nodeType;
 									
 									$(this).find('input').each(function(){
-										sendData[$(this).attr('class')] = $(this).val();
-										node.data($(this).attr('class'), $(this).val());
+										if ($(this).attr("type") == "checkbox"){
+											sendData[$(this).attr('data-send')] = $(this).is(':checked');
+											node.data($(this).attr('data-send'), $(this).is(':checked'));
+
+										}else{
+											sendData[$(this).attr('data-send')] = $(this).val();
+											node.data($(this).attr('data-send'), $(this).val());
+										}
+									
+
 										node.data("status", "added");
 										node.data("entry_type", nodeType);
 										node.removeClass("empty");

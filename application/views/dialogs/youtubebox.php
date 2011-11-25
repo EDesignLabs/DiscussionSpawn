@@ -2,8 +2,10 @@
 	<form>
 		<fieldset>
 			<label for="name">Video ID</label>
-			<input type="text" name="youname" class="field1" class="text ui-widget-content ui-corner-all" />
-
+			<input type="text" name="youname" data-send = "field1" />
+			
+			<label for="name">Need comments?</label>
+			<input data-send = "field3" type="checkbox" name="comments" > 
 
 		</fieldset>
 	</form>

@@ -108,35 +108,7 @@ class thread extends MY_Controller {
 		else
 			show_404();
 	}
-	
-	public function add_new_entry_page()
-	{
-		//set page title
-		$data['title'] = "Add new post";
-		
-		$this->load->helper('form');
-		$this->load->library(array('form_validation','session'));
-		
-		//set validation rules
-		$this->form_validation->set_rules('field1', 'Title', 'required|max_length[200]');
-		$this->form_validation->set_rules('field2', 'Body', 'required');
-		
-		if ($this->form_validation->run() == FALSE)
-		{
-			//if not valid
-			$this->load->view('thread/add_new',$data);
-		}
-		else
-		{
-			//if valid
-			$name = $this->input->post('field1');
-			$body = $this->input->post('field2');
-			$position = 'full';
-			$this->thread_model->add_new_entry($name,$body, $position);
-			$this->session->set_flashdata('message', '1 new post added at position '.$position.' !' );
-			redirect('new-post');
-		}
-	}
+
 	
 	public function add_new_entry(){
 		
@@ -145,12 +117,16 @@ class thread extends MY_Controller {
 		$entry_type = "";	
 		$field1 = "";
 		$field2 = "";
+		$field3 = "";
 		
 		if (!($this->input->post('field1')==false))
 			$field1 = $this->input->post('field1');
 			
 		if (!($this->input->post('field2')==false))
 			$field2 = $this->input->post('field2');
+			
+		if (!($this->input->post('field3')==false))
+			$field3 = $this->input->post('field3');
 			
 		if (!($this->input->post('top')==false))
 			$top = $this->input->post('top');
@@ -161,7 +137,7 @@ class thread extends MY_Controller {
 		if (!($this->input->post('entry_type')==false))
 			$entry_type = $this->input->post('entry_type');
 
-		echo $this->thread_model->add_new_entry($entry_type, $position, $top, $field1,$field2 );
+		echo $this->thread_model->add_new_entry($entry_type, $position, $top, $field1,$field2,$field3 );
 	}
 	
 	
@@ -182,12 +158,16 @@ class thread extends MY_Controller {
 		$post->entry_id = "";
 		$post->field1 = "No feild1";
 		$post->field2 = "No feild2";
+		$post->field3 = "No feild3";
 		
 		if (!($this->input->post('field1')==false))
 			$post->field1 = $this->input->post('field1');
 			
 		if (!($this->input->post('field2')==false))
 			$post->field2 = $this->input->post('field2');
+			
+		if (!($this->input->post('field3')==false))
+			$post->field3 = $this->input->post('field3');
 		
 		if ($this->input->post('template'))
 			$this->load->view('modules/'.$this->input->post('template'), array('post' => $post));

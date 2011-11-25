@@ -17,13 +17,14 @@ class thread_model extends CI_Model {
 		return $query->result();
 	}
 	
-	function add_new_entry($type, $position = "left", $top = "300", $field1 = "" ,$field2 = "")
+	function add_new_entry($type, $position = "left", $top = "300", $field1 = "" ,$field2 = "",$field3 = "")
 	{
 		if ($this->tank_auth->is_logged_in()) {
 			$data = array(
 				'entry_type' => $type,
 				'field1' => $field1,
 				'field2' => $field2,
+				'field3' => $field3,
 				'author_id' => $this->tank_auth->get_user_id(),
 				'position' => $position,
 				'top' => $top

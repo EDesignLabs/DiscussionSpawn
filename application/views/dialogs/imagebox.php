@@ -3,12 +3,15 @@
 	<form>
 		<fieldset>
 			<label for="name">Title</label>
-			<input type="text"  class="field2" value = "" class="text ui-widget-content ui-corner-all" />
+			<input type="text"  data-send = "field2" value = "" class="text ui-widget-content ui-corner-all" />
 		
 			<label for="name">Image</label>
 			<input class = "file_upload" id="file_upload<?php echo uniqid();?>" name="file_upload" type="file" />
 			
-			<input type="hidden" name="name" class="field1" class="text ui-widget-content ui-corner-all" />
+			<label for="name">Need comments?</label>
+			<input data-send = "field3" type="checkbox" name="comments" > 
+			
+			<input type="hidden" name="name" data-send = "field1" class="text ui-widget-content ui-corner-all" />
 		</fieldset>
 	</form>
 

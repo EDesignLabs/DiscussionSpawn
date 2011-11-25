@@ -2,7 +2,7 @@
 	<form>
 		<fieldset>
 			<label for="name">Text</label>
-			<input type="text" name="name" class="field2" class="text ui-widget-content ui-corner-all" />
+			<input data-send = "field2" type="text" name="name" class="text ui-widget-content ui-corner-all" />
 		</fieldset>
 	</form>
 </div>

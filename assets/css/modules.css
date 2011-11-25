@@ -8,3 +8,8 @@
 	margin-bottom:10px;
 
 }
+
+.node.align-left .youtubebox article, .node.align-right .youtubebox article{
+	width:415px;
+
+}
