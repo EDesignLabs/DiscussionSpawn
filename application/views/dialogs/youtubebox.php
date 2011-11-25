@@ -1,4 +1,4 @@
-<div data-type = "youtubebox" class = "youtubebox dialog" style="display:none" title="Create Youtubebox">
+<div data-type = "youtubebox" class = "youtubebox dialog" style="display:none" title="Youtube">
 	<form>
 		<fieldset>
 			<label for="name">Video ID</label>

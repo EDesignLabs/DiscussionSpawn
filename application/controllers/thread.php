@@ -47,6 +47,8 @@ class thread extends MY_Controller {
 	public function post($id)
 	{
 		$this->load->helper('threaded_comments');
+		
+		$data['username']	= $this->tank_auth->get_username();
 		$data['query'] = $this->thread_model->get_post($id);
 		$data['comments'] = $this->thread_model->get_post_comment($id);
 		$data['post_id'] = $id;
@@ -55,8 +57,7 @@ class thread extends MY_Controller {
 		//get comments and format them
 		$comments = $this->thread_model->get_post_comment($id); 
 		$comments_arr =  array();
-		
-		if($comments) 
+		if($comments) {
 			foreach($comments as $row){
 				if ($row->comment_parent == 0)
 					$row->comment_parent = NULL;
@@ -64,6 +65,7 @@ class thread extends MY_Controller {
 				$comments_arr[] = array('id'=>$row->comment_id, 'parent_id'=>$row->comment_parent, 'text'=>$row->comment_body ,  'author'=>$row->comment_name , 'date' =>  mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($row->comment_date)));
 			
 			}
+		}
 		
 		$threaded_comments = new Threaded_comments($comments_arr);
 		$data['formated_comments'] = $threaded_comments->print_comments();
@@ -88,7 +90,7 @@ class thread extends MY_Controller {
 			if ($this->form_validation->run() == FALSE)
 			{
 				//if not valid
-				$this->load->view('thread/post',$data);
+				$this->load->view('posts/'.$row->entry_type,$data);
 				
 			}
 			else

@@ -1,4 +1,4 @@
-<div data-type = "imagebox" class = "imagebox dialog" style="display:none" title="Create Imagebox">
+<div data-type = "imagebox" class = "imagebox dialog" style="display:none" title="Image">
 
 	<form>
 		<fieldset>

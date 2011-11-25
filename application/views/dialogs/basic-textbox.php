@@ -1,4 +1,4 @@
-<div data-type = "basic-textbox" class = "basic-textbox dialog" style="display:none" title="Create new textbox">
+<div data-type = "basic-textbox" class = "basic-textbox dialog" style="display:none" title="Simple Box">
 	<form>
 		<fieldset>
 			<label for="name">Text</label>

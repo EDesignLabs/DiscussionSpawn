@@ -1,4 +1,4 @@
-<div data-type = "title-textbox" class = "title-textbox dialog" style="display:none" title="Create new textbox with comments">
+<div data-type = "title-textbox" class = "title-textbox dialog" style="display:none" title="Textbox">
 	<form>
 		<fieldset>
 			<label for="name">Title</label>
