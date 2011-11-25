@@ -2,3 +2,9 @@
 	text-align: center;
 
 }
+
+.node .youtubebox iframe{
+	width:100%;
+	margin-bottom:10px;
+
+}

@@ -2,6 +2,9 @@
 // Save Function
 function save(){
 		
+		$('.save_btn').css('background','url("assets/img/save.png") no-repeat scroll center bottom transparent');
+		$('.save_btn').data("isSaved", true);
+		
 		$('.node').each(function(index) {	
 			var node = $(this);
 			
@@ -71,7 +74,7 @@ function setNodeContainerHeight() {
 	});
 }
 
-function setButtonUnknown(){
+function setSaveButtonUnknown(){
 	$('.save_btn').css('background','url("assets/img/unsaved.png") no-repeat scroll center bottom transparent');
-
+	$('.save_btn').data("isSaved", false);
 }

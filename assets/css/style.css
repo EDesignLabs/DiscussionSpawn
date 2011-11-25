@@ -175,6 +175,11 @@ article, .type-container{
 
 }
 
+.align-full article, .align-full .type-container{
+    text-align: center;
+
+}
+
 .commentor{
 	margin:4px;
 	padding:4px;

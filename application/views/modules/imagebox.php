@@ -1,5 +1,8 @@
 <div class = "imagebox" title = "Image Box" > 
-	<article style = "background:#ffffff url('assets/uploads/<?=$post->field1;?>') no-repeat center center;min-width: 375px; min-height: 275px;">
+	<article >
+		
+		<img src = "assets/uploads/<?=$post->field1;?>" />
+		
 		<div class="post meta">
 			<div class="field1"><?php echo $post->field2;?></div>
 		</div>

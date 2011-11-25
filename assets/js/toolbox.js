@@ -2,14 +2,7 @@
 
 
 function initializeToolbox (){
-	$('.add_btn').click(function(){
-		var newNode = $('<div style="top: 195px; display: block;" data-position="left" class="node ui-draggable align-left"><article></article></div>');
-		$('#nodes').append(newNode);
-		newNode.draggable(nodeSettings);
-		setButtonUnknown();
-		return false;
-	});
-							
+				
 	$('.save_btn').click(save);
 	
 	$('#trash').droppable({
@@ -23,7 +16,7 @@ function initializeToolbox (){
 		},
 		drop: function( event, ui ) {
 			$(ui.draggable).data('status','deleted')
-			setButtonUnknown();
+			
 		}
 	});
 	
@@ -65,6 +58,7 @@ function initializeToolbox (){
 		},
 		drop:function( event, ui ){
 			if (!($(ui.draggable).hasClass('node'))){	
+				setSaveButtonUnknown();
 				
 				var position = "";
 				if ($(this).hasClass("left"))

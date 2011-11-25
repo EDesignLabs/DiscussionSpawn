@@ -131,6 +131,7 @@
 				<? $this->load->view('dialogs/basic-textbox'); ?>
 				<? $this->load->view('dialogs/title-textbox'); ?>
 				<? $this->load->view('dialogs/imagebox'); ?>
+				<? $this->load->view('dialogs/youtubebox'); ?>
 
 			</div>
 			

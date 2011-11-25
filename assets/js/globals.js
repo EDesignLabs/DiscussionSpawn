@@ -2,7 +2,7 @@ var nodeSettings = {
 	grid: [ 5,5 ],
 	axis: 'y' ,
 	start:function(event, ui) {
-		
+		setSaveButtonUnknown();
 		if ($(this).data('status') != "added")
 			$(this).data('status' , "moved");
 	},
