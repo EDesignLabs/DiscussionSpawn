@@ -17,7 +17,12 @@
 					initializeToolbox();
 					setNodeContainerHeight(); 
 
-					$('a.dead_link').live("click", function(){alert("Cannot veiw this page until saved");return false;});
+					$('a.post-link').live("click", function(){
+						if ($(this).closest('.node').data("status") == "added"){
+							alert("Cannot veiw this page until saved");
+							return false;
+						}
+					});
 					
 					$('.node .type-container a').live("click", function(){
 						

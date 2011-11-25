@@ -35,10 +35,10 @@ function save(){
 						  },
 					success: function(data){
 						node.css("border","none");
-						node.data("status" , "current")
-						node.data("entry_id", data)
-						node.find('.dead_link').attr('href',node.find('.dead_link').attr("href")+data);
-						node.find('.dead_link').removeClass('dead_link');
+						node.data("status" , "current");
+						node.data("entry_id", data);
+						node.find('.post-link').attr('href',node.find('.post-link').attr("href")+data);
+						
 					}
 				});
 			
