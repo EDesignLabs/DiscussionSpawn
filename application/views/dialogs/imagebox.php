@@ -11,7 +11,7 @@
 			<label for="name">Need comments?</label>
 			<input data-send = "field3" type="checkbox" name="comments" > 
 			
-			<input type="hidden" name="name" data-send = "field1" class="text ui-widget-content ui-corner-all" />
+			<input type="hidden" name="name" data-send = "field1" class="field1 text ui-widget-content ui-corner-all" />
 		</fieldset>
 	</form>
 
