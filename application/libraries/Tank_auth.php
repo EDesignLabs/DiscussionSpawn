@@ -69,9 +69,10 @@ class Tank_auth
 
 					} else {
 						$this->ci->session->set_userdata(array(
-								'user_id'	=> $user->id,
-								'username'	=> $user->username,
-								'status'	=> ($user->activated == 1) ? STATUS_ACTIVATED : STATUS_NOT_ACTIVATED,
+								'user_id'	  => $user->id,
+								'username'	  => $user->username,
+								'permissions' => explode(",", $user->permissions),
+								'status'	  => ($user->activated == 1) ? STATUS_ACTIVATED : STATUS_NOT_ACTIVATED,
 						));
 
 						if ($user->activated == 0) {							// fail - not activated
@@ -147,6 +148,16 @@ class Tank_auth
 	function get_username()
 	{
 		return $this->ci->session->userdata('username');
+	}
+	
+	/**
+	 * Get permissions
+	 *
+	 * @return	string
+	 */
+	function get_permissions()
+	{
+		return $this->ci->session->userdata('permissions');
 	}
 
 	/**
