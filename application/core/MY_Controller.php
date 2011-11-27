@@ -11,6 +11,7 @@ class MY_Controller extends CI_Controller {
 	if (!$this->tank_auth->is_logged_in()) {
 		redirect('/auth/login/');
 	}
+	
   } 
   
 } 

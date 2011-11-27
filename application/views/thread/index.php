@@ -4,109 +4,7 @@
 	<?php $this->load->view('thread/menu');?>
     <div id="container">        				
 			<script type="text/javascript">
-				$( init );
 
-				function init() {
-				
-				
-				
-					$('.node').draggable(nodeSettings);
-					$('#add_btn').draggable({ revert: 'invalid', grid: [ 5,5 ] });
-					
-					
-					initializeToolbox();
-					setNodeContainerHeight(); 
-
-					$('a.post-link').live("click", function(){
-						if ($(this).closest('.node').data("status") == "added"){
-							alert("Cannot veiw this page until saved");
-							return false;
-						}
-					});
-					
-					$('.node .type-container a').live("click", function(){
-						
-						var node = $(this).closest('.node');
-						var nodeType = $(this).attr("href");
-						
-						var dialogSelector = "#type-examples ." + nodeType;
-						
-						$(dialogSelector).clone().dialog({
-							autoOpen: true,
-							height: 300,
-							width: 350,
-							modal: true,
-							create: function(event, ui) {
-								  var myDialog = $(this);
-								  var fileUpload = $(this).find('.file_upload');
-								  
-								  var uniqueId = Math.floor(Math.random()*999999);
-								  
-								  fileUpload.attr('id', "file"+uniqueId );
-					
-								
-					
-								  $(this).find('#file'+uniqueId).uploadify({
-									'uploader'  : 'assets/uploadify/uploadify.swf',
-									'script'    : 'assets/uploadify/uploadify.php',
-									'cancelImg' : 'assets/uploadify/cancel.png',
-									'folder'    : 'assets/uploads',
-									'auto'      : true,
-									'fileExt'     : '*.jpg;*.gif;*.png',
-									'onComplete': function(event, ID, fileObj, response, data) {
-								      //console.log(response);
-									  //console.log( myDialog);
-									  myDialog.find('.field1').val(response);
-								    }
-								  });
-							
-							},
-							buttons: {
-								"Create": function() {
-								
-									node.empty();
-									node.append('<img src = "assets/img/loader.gif">');
-									var sendData = {};
-									sendData['template'] = nodeType;
-									
-									$(this).find('input').each(function(){
-										if ($(this).attr("type") == "checkbox"){
-											sendData[$(this).attr('data-send')] = $(this).is(':checked');
-											node.data($(this).attr('data-send'), $(this).is(':checked'));
-
-										}else{
-											sendData[$(this).attr('data-send')] = $(this).val();
-											node.data($(this).attr('data-send'), $(this).val());
-										}
-									
-
-										node.data("status", "added");
-										node.data("entry_type", nodeType);
-										node.removeClass("empty");
-									});
-																		
-									$.ajax({
-										url: "thread/get_template",
-										type: 'POST',
-										data: sendData,
-										success: function(data){
-											node.empty();
-											node.append(data);
-										}
-									});
-									
-									$( this ).dialog( "destroy" );
-								},
-								Cancel: function() {
-									$( this ).dialog( "destroy" );
-								}
-							},
-						});
-
-						
-						return false;
-					});
-				}
 				
 			</script>
 			<div id = "content-wrapper">
@@ -125,7 +23,7 @@
 					<?php endif; ?>
 				</div><!-- Close nodes -->
 				
-				<?php if (in_array("can_edit_line", $permissions)): ?>
+				<?php if (in_array("can_edit_line", $this->tank_auth->get_permissions())): ?>
 					<aside id = "toolbox">
 						<ul>
 							<li><a class = "save_btn" href="#"></a></li>

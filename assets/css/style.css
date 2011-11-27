@@ -86,7 +86,7 @@ body {
 .node{
 	width: 512px;
 	position: absolute;
-	cursor: move;
+	
 }
 .align-left{
     background: url("../img/arrow-circle-lr.png") no-repeat scroll right center transparent;
