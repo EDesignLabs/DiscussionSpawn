@@ -31,7 +31,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    width: 981px;
+    width: 1012px;
 }
 
 #menu ol{
@@ -209,7 +209,8 @@ h3{
 }
 
 a{
-	color:#ff9000;
+	font-family: 'Open Sans', sans-serif;
+	color:#3399FF;
 	text-decoration:none;
 }
 a:hover{

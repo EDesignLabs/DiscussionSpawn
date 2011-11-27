@@ -149,6 +149,7 @@ function init() {
 
 						node.data("status", "added");
 						node.data("entry_type", nodeType);
+						node.css("cursor","move");
 						node.removeClass("empty");
 					});
 														
