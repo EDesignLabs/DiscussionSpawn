@@ -27,8 +27,7 @@
             <?php foreach($query as $post):?>
 				<div class="post">
 					<div class="post meta">
-						<div class="title"><h2><?php echo $post->field1;?></h2></div>
-						<div class="date"><?php echo mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($post->entry_date));?></div>
+						<iframe width="420" height="315" src="http://www.youtube.com/embed/<?=$post->field1;?>" frameborder="0" allowfullscreen></iframe>
 					</div>
 					<br clear="all" />
 					<p><?php echo $post->field2;?></p>

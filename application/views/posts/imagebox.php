@@ -27,8 +27,8 @@
             <?php foreach($query as $post):?>
 				<div class="post">
 					<div class="post meta">
-						<div class="title"><h2><?php echo $post->field1;?></h2></div>
-						<div class="date"><?php echo mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($post->entry_date));?></div>
+						<img src = "<?=base_url()?>assets/uploads/<?=$post->field1;?>" />
+						
 					</div>
 					<br clear="all" />
 					<p><?php echo $post->field2;?></p>
