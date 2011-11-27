@@ -25,7 +25,7 @@
 
 		$('.node').each(function(index) {						
 			if ($(this).offset().top > pageHeight )
-				pageHeight = $(this).offset().top;
+				pageHeight = $(this).offset().top+300;
 		});
 
 		$('#content-wrapper').animate({

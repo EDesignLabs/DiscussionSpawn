@@ -13,3 +13,11 @@
 	width:415px;
 
 }
+
+.node.align-left .imagebox img, .node.align-right .imagebox img{
+	max-width: 415px;
+}
+
+.node.align-full .imagebox img{
+	max-width: 965px;
+}
