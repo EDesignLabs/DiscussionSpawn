@@ -124,19 +124,22 @@
 						<!--NO NODEs -->
 					<?php endif; ?>
 				</div><!-- Close nodes -->
-				<aside id = "toolbox">
-					<ul>
-						<li><a class = "save_btn" href="#"></a></li>
-						<li id="trash" >
+				
+				<?php if (in_array("can_edit_line", $permissions)): ?>
+					<aside id = "toolbox">
+						<ul>
+							<li><a class = "save_btn" href="#"></a></li>
+							<li id="trash" >
+								
+							</li>
 							
-						</li>
-						
-						<li id="add_btn">
-							
-						</li>
+							<li id="add_btn">
+								
+							</li>
 
-					</ul>
-				</aside>
+						</ul>
+					</aside>
+				<?php endif; ?>
 			</div>
 			
 			<div id = "type-examples" style="display:none">				

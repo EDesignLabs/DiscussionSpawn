@@ -24,12 +24,6 @@ class thread extends MY_Controller {
 		$data['query'] = $this->thread_model->get_all_posts();
 		$this->load->view('thread/index',$data);
 
-
-	
-
-
-		
-
 	}
 	
 	public function flat()
