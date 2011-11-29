@@ -157,7 +157,13 @@ class Tank_auth
 	 */
 	function get_permissions()
 	{
-		return $this->ci->session->userdata('permissions');
+	
+		$permissions = $this->ci->session->userdata('permissions');
+		
+		if (is_array($permissions))
+			return $permissions;
+		else
+			return array();
 	}
 
 	/**
