@@ -230,6 +230,36 @@ p{
 	color:#0F0;
 }
 
+.comment{
+    background-color: white;
+    margin-bottom: 12px;
+    padding: 12px;
+
+}
+
+.comment time{
+	float:right;
+
+}
+
+.comment .author{
+	float:left;
+}
+
+.comment  .comment-body{
+    clear: both;
+    display: table;
+    margin: 10px 0;
+    width: 100%;
+
+}
+
+.reply-link {
+    display: block;
+    text-align: right;
+    width: 100%;
+}
+
 .level-1{
 	margin-left:30px;
 

@@ -25,18 +25,7 @@ class thread extends MY_Controller {
 		$this->load->view('thread/index',$data);
 
 	}
-	
-	public function flat()
-	{
-		//set page title
-		$data['title'] = "Home";
-		
-		$data['user_id']	= $this->tank_auth->get_user_id();
-		$data['username']	= $this->tank_auth->get_username();
 
-		$data['query'] = $this->thread_model->get_all_posts();
-		$this->load->view('thread/flat',$data);
-	}
 	
 	//this function will retrive a post
 	public function post($id)
@@ -57,7 +46,7 @@ class thread extends MY_Controller {
 				if ($row->comment_parent == 0)
 					$row->comment_parent = NULL;
 			
-				$comments_arr[] = array('id'=>$row->comment_id, 'parent_id'=>$row->comment_parent, 'text'=>$row->comment_body ,  'author'=>$row->comment_name , 'date' =>  mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($row->comment_date)));
+				$comments_arr[] = array('id'=>$row->comment_id, 'parent_id'=>$row->comment_parent,'entry_id'=>$row->entry_id, 'text'=>$row->comment_body ,  'author'=>$row->comment_name , 'date' =>  mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($row->comment_date)));
 			
 			}
 		}
@@ -98,7 +87,7 @@ class thread extends MY_Controller {
 				$parent_id = $this->input->post('parent_id');
 				
 				$this->thread_model->add_new_comment($post_id,$parent_id,$name,$email,$comment);
-				$this->session->set_flashdata('message', '1 new comment added! to '.$parent_id);
+				$this->session->set_flashdata('message', '1 new comment added!');
 				redirect('post/'.$id);
 			}
 		}
@@ -171,6 +160,12 @@ class thread extends MY_Controller {
 		else
 			echo "THERE IS NO TEMPLATE WITH THAT NAME.";
 	}
+	
+	public function delete_comment($comment_id,$post_id){
+		$this->thread_model->delete_comment($comment_id);
+		redirect('post/'.$post_id);
+	}
+	
 }
 
 /* End of file thread.php */

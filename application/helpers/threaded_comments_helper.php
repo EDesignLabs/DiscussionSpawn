@@ -34,9 +34,11 @@ class Threaded_comments
     private function format_comment($comment, $depth)
     {
 		$comment_string = "";
-		$comment_string .=  '<li data-id ="'.$comment['id'].'" class = "level-'.$depth.'" >';
-        $comment_string .=  $comment['author']."-".$comment['text'];
-		$comment_string .= 	'<a href = "#reply" class = "reply-link"> Reply </a>';
+		$comment_string .=  '<li data-id ="'.$comment['id'].'" class = "comment level-'.$depth.'" >';
+        $comment_string .=  	'<div class = "author" >'.$comment['author']."</div><time>".$comment['date']."</time>";
+		$comment_string .= 		'<div class = "comment-body" >'.$comment['text']."</div>";
+		$comment_string .= 		'<a href = "#reply" class = "reply-link"> Reply </a>';
+		$comment_string .= 		'<a href = "'.base_url().'thread/delete_comment/'.$comment['id'].'/'.$comment['entry_id'].'" class = "delete-link"> Delete </a>';
 		$comment_string .=  '</li>';
 		
 		return $comment_string;

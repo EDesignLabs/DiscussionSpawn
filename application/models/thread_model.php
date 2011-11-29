@@ -87,6 +87,10 @@ class thread_model extends CI_Model {
 	public function delete_entry($entry_id){
 		$this->db->delete('entry', array('entry_id' => $entry_id)); 
 	}
+	
+	public function delete_comment($comment_id){
+		$this->db->delete('comment', array('comment_id' => $comment_id)); 
+	}
 }
 
 /* End of file thread_model.php */
