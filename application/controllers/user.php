@@ -18,11 +18,14 @@ class user extends MY_Controller {
 	}
 	
 	//this function will retrive all entry in the database
-	public function profile($user_id)
+	public function profile($username)
 	{
 		//set page title
 		$data['title'] = "User";
-		$data['query'] = $this->user_model->get_user($user_id);
+		$data['query'] = $this->user_model->get_user($username);
+		
+		$data['comments'] = $this->user_model->get_user_comments($username);
+		
 		$this->load->view('thread/user',$data);
 
 	}

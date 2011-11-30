@@ -16,9 +16,9 @@ class user_model extends CI_Model {
 		return $query->result();
 	}
 	
-	function get_user($id)
+	function get_user($username)
 	{
-		$this->db->where('user_id',$id);
+		$this->db->where('username',$username);
 		$query = $this->db->get('user_profiles');
 		if($query->num_rows()!==0)
 		{
@@ -26,6 +26,14 @@ class user_model extends CI_Model {
 		}
 		else
 			return FALSE;
+	}
+	
+	function get_user_comments($username)
+	{
+		$this->db->where('comment_name',$username);
+		$this->db->order_by('comment_date','asc');
+		$query = $this->db->get('comment');
+		return $query->result();
 	}
 	
 	/*
