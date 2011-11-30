@@ -31,7 +31,7 @@ class user_model extends CI_Model {
 	function get_user_comments($username)
 	{
 		$this->db->where('comment_name',$username);
-		$this->db->order_by('comment_date','asc');
+		$this->db->order_by('comment_date','desc');
 		$query = $this->db->get('comment');
 		return $query->result();
 	}

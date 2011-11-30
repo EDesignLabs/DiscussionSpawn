@@ -268,3 +268,26 @@ p{
 	margin-left:60px;
 
 }
+
+.user-posts li{
+	text-decoration: none;
+	list-style: none;
+	background-color: white;
+	margin: 5px;
+	padding: 10px;
+	width: 80%;
+	display: table;
+
+}
+
+.user-posts li a{
+	width: 750px;
+	display: table;
+	margin-bottom: 10px;
+
+}
+
+.comment-date{
+	float: right;
+
+}
