@@ -46,7 +46,7 @@
 			
 			</tbody></table>
 		</div>
-    	
+<br>	<br>	
          				
 		<?php foreach($query as $post):?>
 		<div class="user-posts">
