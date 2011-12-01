@@ -32,13 +32,30 @@ class user extends MY_Controller {
 		$comments = $data['comments'];
 		$complete_text = "";
 		
+		$average_word_count_per_entry = 0;
+		$total_entries = 0;
+		
 		if($comments): foreach($comments as $comment):
-				$complete_text .= $comment->comment_body ;
-			endforeach;
+			if ($this->textstatistics->word_count($comment->comment_body)> 3){
+			
+				$average_word_count_per_entry += $this->textstatistics->word_count($comment->comment_body);
+				$total_entries += 1;
+				$complete_text .= trim($comment->comment_body, ".").". " ;
+			}
+		endforeach;
 		endif; 
 		
-		$data['stats'] = $this->textstatistics->flesch_kincaid_reading_ease($complete_text);
+		$data['flesch_kincaid'] = $this->textstatistics->flesch_kincaid_grade_level($complete_text);
+		$data['gunning_fog_score'] = $this->textstatistics->gunning_fog_score($complete_text);
+		$data['coleman_liau_index'] = $this->textstatistics->coleman_liau_index($complete_text);
+		$data['smog_index'] = $this->textstatistics->smog_index($complete_text);
+		$data['automated_readability_index'] = $this->textstatistics->automated_readability_index($complete_text);
+		$data['average'] = ($data['flesch_kincaid']+$data['gunning_fog_score']+$data['coleman_liau_index']+$data['smog_index']+$data['automated_readability_index'])/5;
 		
+		$data['sentence_count'] = $this->textstatistics->sentence_count($complete_text);
+		$data['word_count'] = $this->textstatistics->word_count($complete_text);
+		$data['average_words_per_sentence'] = $this->textstatistics->average_words_per_sentence($complete_text);
+		$data['average_words_per_entry'] = $average_word_count_per_entry/$total_entries;
 		
 		$this->load->view('thread/user',$data);
 
