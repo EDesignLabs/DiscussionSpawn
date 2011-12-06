@@ -46,6 +46,7 @@
 				<? $this->load->view('dialogs/title-textbox'); ?>
 				<? $this->load->view('dialogs/imagebox'); ?>
 				<? $this->load->view('dialogs/youtubebox'); ?>
+				<? $this->load->view('dialogs/promptbox'); ?>
 
 			</div>
 			
