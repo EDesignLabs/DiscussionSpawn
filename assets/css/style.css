@@ -108,10 +108,10 @@ body {
 }
 
 #toolbox{
-    height: 30px;
-    margin-top: 85px;
+
+   
     position: fixed;
-    text-align: right;
+    z-index:999;
     width: 100px;
 	
   
