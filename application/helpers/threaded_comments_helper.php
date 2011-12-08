@@ -34,7 +34,7 @@ class Threaded_comments
     private function format_comment($comment, $depth)
     {
 		$comment_string = "";
-		$comment_string .=  '<li data-id ="'.$comment['id'].'" class = "comment level-'.$depth.'" >';
+		$comment_string .=  '<li data-username = "'.$comment['author'].'" data-id ="'.$comment['id'].'" class = "comment level-'.$depth.'" >';
         $comment_string .=  	'<div class = "author" >'.$comment['author']."</div><time>".$comment['date']."</time>";
 		$comment_string .= 		'<div class = "comment-body" >'.$comment['text']."</div>";
 		$comment_string .= 		'<a href = "#reply" class = "reply-link"> Reply </a>';

@@ -278,6 +278,24 @@ p{
 
 }
 
+.level-3{
+	margin-left:90px;
+
+}
+
+.level-4{
+	margin-left:120px;
+
+}
+.level-5{
+	margin-left:140px;
+
+}
+.level-6{
+	margin-left:160px;
+
+}
+
 .user-posts li{
 	text-decoration: none;
 	list-style: none;

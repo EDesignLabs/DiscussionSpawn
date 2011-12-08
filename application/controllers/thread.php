@@ -85,8 +85,9 @@ class thread extends MY_Controller {
 				$comment = $this->input->post('comment');
 				$post_id = $this->input->post('post_id');
 				$parent_id = $this->input->post('parent_id');
+				$parent_username = $this->input->post('parent_username');
 				
-				$this->thread_model->add_new_comment($post_id,$parent_id,$name,$email,$comment);
+				$this->thread_model->add_new_comment($post_id,$parent_id,$parent_username,$name,$email,$comment);
 				$this->session->set_flashdata('message', '1 new comment added!');
 				redirect('post/'.$id);
 			}

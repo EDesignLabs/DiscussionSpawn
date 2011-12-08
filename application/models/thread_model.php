@@ -34,8 +34,9 @@ class thread_model extends CI_Model {
 		}
 	}
 	
-	function add_new_comment($post_id,$parent_id,$commentor,$email,$comment)
+	function add_new_comment($post_id,$parent_id,$parent_username,$commentor,$email,$comment)
 	{
+		//Add to comments
 		$data = array(
 			'entry_id'=>$post_id,
 			'comment_parent'=>$parent_id,
@@ -44,6 +45,21 @@ class thread_model extends CI_Model {
 			'comment_body'=>$comment,
 		);
 		$this->db->insert('comment',$data);
+		
+		//Send notification to user if they are replying
+		if ($parent_id != null){
+		
+			$data = array(
+				'username'=>$parent_username,
+				'post_id'=>$post_id,
+				'type'=>"reply",
+				'message'=>'Someone has replyed!'
+			);
+			
+			$this->db->insert('notifications',$data);
+		
+		}
+		
 	}
 	
 	function get_post($id)

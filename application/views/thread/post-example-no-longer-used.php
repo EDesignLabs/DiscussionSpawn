@@ -11,6 +11,7 @@
 					var commentform = $('#comment-form');
 					
 					commentform.find('.parent_id').val($(this).parent().data('id'));
+					commentform.find('.parent_username').val($(this).parent().data('username'));
 					
 					$(this).parent().append($('#comment-form'));
 					return false;
@@ -64,6 +65,7 @@
 					
 					<input type="hidden" name="post_id" value="<?php echo $post_id;?>" />
 					<input class = "parent_id" type="hidden" name="parent_id" value="0" />
+					
 					<input type="submit" value="Submit" />
 					<?php echo form_close();?>
                 </div>

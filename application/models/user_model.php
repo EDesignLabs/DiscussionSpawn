@@ -36,6 +36,15 @@ class user_model extends CI_Model {
 		return $query->result();
 	}
 	
+	function get_user_notifications($username)
+	{
+		$this->db->where(array('username' => $username, 'status' => "unread"));
+		$this->db->order_by('insert_time','desc');
+		$query = $this->db->get('notifications');
+		
+		return $query->result();
+	}
+	
 	/*
 	function add_new_entry($type, $position = "left", $top = "300", $field1 = "" ,$field2 = "",$field3 = "")
 	{

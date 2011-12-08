@@ -61,4 +61,10 @@ class user extends MY_Controller {
 
 	}
 	
+	public function get_notices(){
+		echo $this->tank_auth->get_username();
+		var_dump($this->user_model->get_user_notifications($this->tank_auth->get_username()));
+	
+	}
+	
 }

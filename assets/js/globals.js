@@ -1,5 +1,5 @@
 var nodeSettings = { 
-	grid: [ 5,5 ],
+	grid: [ 20,20 ],
 	axis: 'y' ,
 	start:function(event, ui) {
 		setSaveButtonUnknown();
