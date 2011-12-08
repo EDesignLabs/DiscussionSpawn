@@ -74,7 +74,7 @@ class thread extends MY_Controller {
 			if ($this->form_validation->run() == FALSE)
 			{
 				//if not valid
-				$this->load->view('posts/'.$row->entry_type,$data);
+				$this->load->view('nodes/'.$row->entry_type."/post",$data);
 				
 			}
 			else
@@ -156,7 +156,7 @@ class thread extends MY_Controller {
 			$post->field3 = $this->input->post('field3');
 		
 		if ($this->input->post('template'))
-			$this->load->view('modules/'.$this->input->post('template'), array('post' => $post));
+			$this->load->view('nodes/'.$this->input->post('template')."/thread", array('post' => $post));
 		else
 			echo "THERE IS NO TEMPLATE WITH THAT NAME.";
 	}

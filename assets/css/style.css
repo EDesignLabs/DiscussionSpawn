@@ -95,11 +95,17 @@ body {
     text-align: right;
 }
 
+
+
 .align-right{
     background: url("../img/arrow-circle-rl.png") no-repeat scroll left center transparent;
     right: -49px;
     padding-left: 57px;
     text-align: left;
+}
+
+.align-left article,.align-right article{
+	max-width: 415px;
 }
 
 .align-full{
@@ -144,9 +150,12 @@ body {
 
 #add_btn{
     background: url("../img/add.png") no-repeat scroll center bottom transparent;
+    cursor: move;
     height: 65px;
+    left: 24px;
+    position: absolute;
+    top: 205px;
     width: 66px;
-	cursor:move;
 }
 
 

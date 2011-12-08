@@ -31,7 +31,7 @@
 				<div id="nodes">
 					<?php if($query): foreach($query as $post):?>
 					<div class = "node align-<?=$post->position;?>" data-entry_type = "<?=$post->entry_type;?>" data-entry_id = "<?=$post->entry_id;?>" data-status = "current" data-position = "<?=$post->position;?>" style = "top:<?=$post->top;?>px">
-						<? $this->load->view('modules/'.$post->entry_type , array('post' => $post)); ?>
+						<? $this->load->view('nodes/'.$post->entry_type."/thread" , array('post' => $post)); ?>
 					</div>
 					<?php endforeach; else: ?>
 						<!--NO NODEs -->
@@ -43,11 +43,11 @@
 			
 			<div id = "type-examples" style="display:none">				
 				<!-- Start adding different modules here -->
-				<? $this->load->view('dialogs/basic-textbox'); ?>
-				<? $this->load->view('dialogs/title-textbox'); ?>
-				<? $this->load->view('dialogs/imagebox'); ?>
-				<? $this->load->view('dialogs/youtubebox'); ?>
-				<? $this->load->view('dialogs/promptbox'); ?>
+				<? $this->load->view('nodes/basic-textbox/dialog'); ?>
+				<? $this->load->view('nodes/title-textbox/dialog'); ?>
+				<? $this->load->view('nodes/imagebox/dialog'); ?>
+				<? $this->load->view('nodes/youtubebox/dialog'); ?>
+				<? $this->load->view('nodes/promptbox/dialog'); ?>
 
 			</div>
 			
