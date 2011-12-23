@@ -15,7 +15,8 @@
 
 		
 		<p>Comment:<br /></p>
-		<textarea rows="6" cols="80%" style="resize:none;" name="comment"></textarea>
+		
+		<textarea id = "comment-box" rows="6" cols="80%" style="resize:none;" name="comment"></textarea>
 		<br clear="all" />
 		
 		<input type="hidden" name="post_id" value="<?php echo $post_id;?>" />
