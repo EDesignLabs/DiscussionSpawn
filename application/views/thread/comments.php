@@ -21,6 +21,7 @@
 		<input type="hidden" name="post_id" value="<?php echo $post_id;?>" />
 		<input class = "parent_id" type="hidden" name="parent_id" value="0" />
 		<input class = "parent_username" type="hidden" name="parent_username" value="" />
+		<input class = "parent_comment" type="hidden" name="parent_comment" value="" />
 
 		<input type="submit" value="Submit" />
 		<?php echo form_close();?>

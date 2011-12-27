@@ -42,7 +42,7 @@ class user_model extends CI_Model {
 		$this->db->order_by('insert_time','desc');
 		$query = $this->db->get('notifications');
 		
-		return $query->result();
+		return $query->result_array() ;
 	}
 	
 	/*

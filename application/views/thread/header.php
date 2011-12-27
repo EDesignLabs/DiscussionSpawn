@@ -11,6 +11,7 @@
 
 <?php if (in_array("can_edit_line", $this->tank_auth->get_permissions())): ?>
 	<script type="text/javascript" src="<?=base_url()?>assets/js/toolbox.js"></script>
+	<script type="text/javascript" src="<?=base_url()?>assets/js/notifier.js"></script>
 	<script type="text/javascript" src="<?=base_url()?>assets/js/functions.js"></script>
 	<script type="text/javascript" src="<?=base_url()?>assets/js/globals.js"></script>
 	<script type="text/javascript" src="<?=base_url()?>assets/uploadify/swfobject.js"></script>

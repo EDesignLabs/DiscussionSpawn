@@ -34,7 +34,7 @@ class thread_model extends CI_Model {
 		}
 	}
 	
-	function add_new_comment($post_id,$parent_id,$parent_username,$commentor,$email,$comment)
+	function add_new_comment($post_id,$parent_id,$parent_username,$parent_comment,$commentor,$email,$comment)
 	{
 		//Add to comments
 		$data = array(
@@ -53,7 +53,7 @@ class thread_model extends CI_Model {
 				'username'=>$parent_username,
 				'post_id'=>$post_id,
 				'type'=>"reply",
-				'message'=>'Someone has replyed!'
+				'message'=>'Someone has replyed to "'.substr($parent_comment,0,40).'..."  !'
 			);
 			
 			$this->db->insert('notifications',$data);
