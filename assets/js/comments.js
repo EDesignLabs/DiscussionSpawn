@@ -10,4 +10,58 @@ console.log($(this).parent().find('.comment-body').text());
 		$(this).parent().append($('#comment-form'));
 		return false;
 	});
+	
+	var source = [
+		"ActionScript",
+		"AppleScript",
+		"Asp",
+		"BASIC",
+		"C",
+		"C++",
+		"Clojure",
+		"COBOL",
+		"ColdFusion",
+		"Erlang",
+		"Fortran",
+		"Groovy",
+		"Haskell",
+		"Java",
+		"JavaScript",
+		"Lisp",
+		"Perl",
+		"PHP",
+		"Python",
+		"Ruby",
+		"Scala",
+		"Scheme"
+	];
+	
+	$( "#comment-box" ).autocomplete({
+		source: function (request, response) {
+					request.term = request.term.split(" ").pop();
+					
+					console.log("test:"+request.term);
+					
+			        var term = $.ui.autocomplete.escapeRegex(request.term)
+			            , startsWithMatcher = new RegExp("^" + term, "i")
+			            , startsWith = $.grep(source, function(value) {
+			                return startsWithMatcher.test(value.label || value.value || value);
+			            })
+			            , containsMatcher = new RegExp(term, "i")
+			            , contains = $.grep(source, function (value) {
+			                return $.inArray(value, startsWith) < 0 &&
+			                    containsMatcher.test(value.label || value.value || value);
+			            });
+			
+			        response(startsWith.concat(contains));
+			    },
+			    
+			    select: function( event, ui ) {
+
+					return false;
+				},
+				
+			position: { my : "left bottom", at: "left top",  collision: "fit" }
+	});
+	
 });

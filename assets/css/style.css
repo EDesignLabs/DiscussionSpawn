@@ -318,3 +318,9 @@ p{
 	float: right;
 
 }
+
+.ui-menu-item{
+	clear:none !important;
+	width: auto !important;
+
+}
