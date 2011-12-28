@@ -45,6 +45,25 @@ class user_model extends CI_Model {
 		return $query->result_array() ;
 	}
 	
+	function get_replies($username)
+	{
+		$this->db->where(array('username' => $username));
+		$this->db->order_by('insert_time','desc');
+		$query = $this->db->get('notifications');
+		
+		return $query->result() ;
+	}
+	
+	function set_user_replies($message_id){
+		$data = array(
+					   'status' => "read"
+					);
+
+		$this->db->where('$message_id',$message_id);
+		$this->db->update('notifications', $data);
+
+	}
+	
 	/*
 	function add_new_entry($type, $position = "left", $top = "300", $field1 = "" ,$field2 = "",$field3 = "")
 	{

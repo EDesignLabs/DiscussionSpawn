@@ -28,7 +28,7 @@ class thread extends MY_Controller {
 
 	
 	//this function will retrive a post
-	public function post($id)
+	public function post($id,$notification = "")
 	{
 		$this->load->helper('threaded_comments');
 		
@@ -73,7 +73,14 @@ class thread extends MY_Controller {
 			
 			if ($this->form_validation->run() == FALSE)
 			{
-				//if not valid
+				//mark a read
+				if ($notification != ""){
+					$not_data = array('status' => "read");
+
+					$this->db->where('id', $notification);
+					$this->db->update('notifications', $not_data);
+				}		
+				
 				$this->load->view('nodes/'.$row->entry_type."/post",$data);
 				
 			}

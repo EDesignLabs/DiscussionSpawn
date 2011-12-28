@@ -66,4 +66,13 @@ class user extends MY_Controller {
 	
 	}
 	
+	public function replies(){
+		$data['title'] = "User Replies";
+		$data['query'] = $this->user_model->get_replies($this->tank_auth->get_username());
+		$this->load->view('thread/replies',$data);
+
+	
+	}
+	
+	
 }

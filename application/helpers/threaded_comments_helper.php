@@ -35,7 +35,7 @@ class Threaded_comments
     {
 		$comment_string = "";
 		$comment_string .=  '<li data-username = "'.$comment['author'].'" data-id ="'.$comment['id'].'" class = "comment level-'.$depth.'" >';
-        $comment_string .=  	'<div class = "author" >'.$comment['author']."</div><time>".$comment['date']."</time>";
+        $comment_string .=  	'<div class = "author" ><a name = "comment-'.$comment['id'].'" >'.$comment['author']."</a></div><time>".$comment['date']."</time>";
 		$comment_string .= 		'<div class = "comment-body" >'.$comment['text']."</div>";
 		$comment_string .= 		'<a href = "#reply" class = "reply-link"> Reply </a>';
 		$comment_string .= 		'<a href = "'.base_url().'thread/delete_comment/'.$comment['id'].'/'.$comment['entry_id'].'" class = "delete-link"> Delete </a>';

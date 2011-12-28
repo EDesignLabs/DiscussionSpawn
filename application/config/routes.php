@@ -44,6 +44,8 @@ $route['404_override'] = '';
 $route['about'] = 'thread/about';
 $route['new-post'] = 'thread/add_new_entry';
 $route['post/(:num)'] = 'thread/post/$1';
+$route['post/(:num)/(:num)'] = 'thread/post/$1/$2';
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
