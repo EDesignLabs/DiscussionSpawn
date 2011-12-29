@@ -66,6 +66,15 @@ class user extends MY_Controller {
 	
 	}
 	
+	public function submit_poll(){
+	
+		$entry_id = $this->input->post('entry_id');
+		$input = $this->input->post('input');
+		
+		echo $this->user_model->submit_poll($entry_id,$input);
+	
+	}
+	
 	public function replies(){
 		$data['title'] = "User Replies";
 		$data['query'] = $this->user_model->get_replies($this->tank_auth->get_username());

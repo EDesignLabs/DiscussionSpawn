@@ -325,8 +325,12 @@ p{
 }
 
 .ui-menu-item{
-	clear:none !important;
-	width: auto !important;
+	//clear:none !important;
+	//width: auto !important;
 
+}
+
+.ui-widget input{
+	width:100%;
 }
 
