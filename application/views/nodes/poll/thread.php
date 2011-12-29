@@ -4,7 +4,7 @@
 			<?php echo $post->field1;?>
 		</h1>
 	
-		<p class = "field2" ><?=$post->field2;?></p>
+
 		<?php $post_count = $this->thread_model->total_comments($post->entry_id);  ?>
 		
 

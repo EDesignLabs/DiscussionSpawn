@@ -65,6 +65,8 @@ console.log($(this).parent().find('.comment-body').text());
 
 //for polls
 $(function(){
+	$('.inlinebar').sparkline('html', {type: 'pie',height:50} );
+
 	$('.submit-form a').click(function(){	
 	
 		var sendData = {};
@@ -76,10 +78,9 @@ $(function(){
 			type: 'POST',
 			data: sendData,
 			success: function(data){
-				console.log(data);
-				
-				
-				
+				$('.submit-form').hide();
+				$('.poll-results').show();
+				$('.inlinebar').sparkline('html', {type: 'pie',height:50} );
 			}
 		});
 		

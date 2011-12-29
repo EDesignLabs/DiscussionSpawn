@@ -6,7 +6,8 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-
+<script type="text/javascript" src="<?=base_url()?>assets/js/jquery.sparkline.min.js"></script>
+	
 <script type="text/javascript">
     var CI = {
       'base_url': '<?php echo base_url(); ?>'
@@ -21,6 +22,7 @@
 	<script type="text/javascript" src="<?=base_url()?>assets/js/globals.js"></script>
 	<script type="text/javascript" src="<?=base_url()?>assets/uploadify/swfobject.js"></script>
 	<script type="text/javascript" src="<?=base_url()?>assets/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+
 <?php endif; ?>
 
 <script type="text/javascript" >

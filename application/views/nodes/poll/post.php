@@ -16,7 +16,18 @@
 					</div>
 					<br clear="all" />
 					
-					<form data-entry_id = "<?=$post->entry_id?>" data-radio_name = "<?=base64_encode($post->field3)?>" class = "submit-form">
+					<?php
+					
+						$votes = json_decode( $post->field2,true);
+						if (isset($votes[$this->tank_auth->get_username()])){
+							$dontdisplayForm = true;
+						}else{
+							$dontdisplayForm = false;
+						}
+						
+					?>
+					
+					<form <?=($dontdisplayForm ? 'style = "display:none"' : '')?> data-entry_id = "<?=$post->entry_id?>" data-radio_name = "<?=base64_encode($post->field3)?>" class = "submit-form">
 					<?php
 						$questions = explode(",",$post->field3);
 						foreach ($questions as $key => $value) {
@@ -27,7 +38,27 @@
 					
 						<a href = "#submit">Submit</a>
 
-					</form> 
+					</form>
+					
+					<div <?=($dontdisplayForm ? '' : 'style = "display:none"')?> class = "poll-results">
+						<h1>Other people have voted:</h1>
+						<?php 
+						$tab = array_count_values($votes);
+							foreach ($tab as $key => $value) {
+						?>
+							
+							The option "<?=base64_decode($key)?>" has <?=$value?> votes. <br>
+						<?php } ?>
+						
+						 <span class="inlinebar"><?php foreach ($tab as $key => $value) {
+						?>
+							
+							<?=$value?>,
+						<?php } ?></span>
+					</div>
+					
+
+					
 					
 					<p></p>
 					<div style="float:right; font-size:12px; margin:0 5px;">
