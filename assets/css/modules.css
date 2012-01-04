@@ -16,7 +16,7 @@
 
 .node .youtubebox article{
 		text-align:center;
-		background: url("../img/green-fibers.png") repeat scroll right top #FFFFFF;
+		background: url("../img/littleknobs.png") repeat scroll right top #FFFFFF;
 
 }
 
@@ -40,4 +40,13 @@
 		font-family: 'Handlee', cursive;
 }
 
+.node .poll article {
+		font-size:16px;
+		background: url("../img/whitediamond.png") repeat scroll right top #FFFFFF;
+		
+}
+.node .poll article h1{
+		font-size:16px;
+		
+}
 
