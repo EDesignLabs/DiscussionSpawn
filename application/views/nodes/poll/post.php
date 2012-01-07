@@ -11,7 +11,7 @@
             <?php foreach($query as $post):?>
 				<div class="post">
 					<div class="post meta">
-						<div class="title"><h2><?php echo $post->field1;?></h2></div>
+						<div class="title"><h1><?php echo $post->field1;?></h1></div>
 						<div class="date"><?php echo mdate("%h:%i %a, %d.%m.%Y",mysql_to_unix($post->entry_date));?></div>
 					</div>
 					<br clear="all" />
@@ -41,7 +41,7 @@
 					</form>
 					
 					<div <?=($dontdisplayForm ? '' : 'style = "display:none"')?> class = "poll-results">
-						<h2>Other people have voted:</h2>
+						<h3>Other people have voted:</h3>
 						<?php 
 						
 							if ($votes != null){ 
@@ -57,7 +57,7 @@
 								
 								<div class="bar-item">
 									<?php foreach ($tab as $key => $value) { ?>
-										<span><?=base64_decode($key);?><br><?=$value?> votes</span>
+										<span><?=base64_decode($key);?><br><div class = "votes"><?=$value?> votes</div></span>
 									<?php } ?></div>
 								</div>
 							
