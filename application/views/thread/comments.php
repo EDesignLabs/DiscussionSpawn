@@ -9,12 +9,10 @@
 		<?php if(validation_errors()){echo validation_errors('<p class="error">','</p>');} ?>
 		<?php if($this->session->flashdata('message')){echo '<p class="success">'.$this->session->flashdata('message').'</p>';}?>
 		
-		<h3>Leave your comment</h3>
+		<h3>Leave your comment:</h3>
 		
 		<?php echo form_open('post/'.$post_id);?>
 
-		
-		<p>Comment:<br /></p>
 		
 		<textarea id = "comment-box" rows="6" cols="80%" style="resize:none;" name="comment"></textarea>
 		<br clear="all" />
