@@ -343,6 +343,12 @@ textarea{
     padding: 14px 14px 30px 0;
 }
 
+#menu li a.new-replies.full{
+	color:red;
+	font-weight:bold;
+
+}
+
 #comment-form input{
     background: none repeat scroll 0 0 #4D97F1;
     border: 1px solid #3B72B4;

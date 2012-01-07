@@ -55,8 +55,13 @@ class user extends MY_Controller {
 		$data['sentence_count'] = $this->textstatistics->sentence_count($complete_text);
 		$data['word_count'] = $this->textstatistics->word_count($complete_text);
 		$data['average_words_per_sentence'] = $this->textstatistics->average_words_per_sentence($complete_text);
-		$data['average_words_per_entry'] = $average_word_count_per_entry/$total_entries;
 		
+		if ($total_entries > 0)
+			$data['average_words_per_entry'] = $average_word_count_per_entry/$total_entries;
+		else
+			$data['average_words_per_entry'] = 0;
+			
+		$data['total_entries']=$total_entries;
 		$this->load->view('thread/user',$data);
 
 	}
