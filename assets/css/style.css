@@ -16,7 +16,7 @@ body {
  h1{
 	font-family: 'Questrial', sans-serif;
 	font-size:36px;
- 
+	margin-bottom: 10px;
  
  }
 
@@ -190,6 +190,13 @@ article, .type-container{
 	border-radius: 3px 3px 3px 3px;
 	border-bottom: 1px solid #DFDFDF;
 	box-shadow: -1px 1px 52px #E1E1E1;
+}
+
+article p {
+
+    font-size: 12px;
+    line-height: 19px;
+    padding-bottom: 6px;
 }
 
 .align-right article, .align-right .type-container{
