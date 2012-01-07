@@ -36,31 +36,45 @@
 					<?php } ?>
 					
 					
-						<a href = "#submit">Submit</a>
+						<a href = "#submit">Vote</a>
 
 					</form>
 					
 					<div <?=($dontdisplayForm ? '' : 'style = "display:none"')?> class = "poll-results">
-						<h1>Other people have voted:</h1>
+						<h2>Other people have voted:</h2>
 						<?php 
-						$tab = array_count_values($votes);
-							foreach ($tab as $key => $value) {
-						?>
-							
-							The option "<?=base64_decode($key)?>" has <?=$value?> votes. <br>
-						<?php } ?>
 						
-						 <span class="inlinebar"><?php foreach ($tab as $key => $value) {
-						?>
+							if ($votes != null){ 
+								$tab = array_count_values($votes);
 							
-							<?=$value?>,
-						<?php } ?></span>
-					</div>
+							?>
+							
+								<span class="inlinebar">
+									 <?php foreach ($tab as $key => $value) { ?>
+										<?=$value?>,
+									<?php } ?>
+								</span>
+								
+								<div class="bar-item">
+									<?php foreach ($tab as $key => $value) { ?>
+										<span><?=base64_decode($key);?><br><?=$value?> votes</span>
+									<?php } ?></div>
+								</div>
+							
+							<?php
+	
+							}else{
+								echo "You are the first person to vote on this. Check back later to see what others said.";
+							
+							}
+						?>
+						
+
 					
 
 					
 					
-					<p></p>
+					<p style = "clear:both"></p>
 					<div style="float:right; font-size:12px; margin:0 5px;">
 						<?php if($total_comments > 1)
 								{echo $total_comments.' comments';}
@@ -70,7 +84,7 @@
 					<hr />
 				</div><!-- Close post -->
             <?php endforeach; ?>
-             <?php $this->load->view('thread/comments', array("formated_comments", $formated_comments));?>
+             <?php $this->load->view('thread/comments', array("formated_comments" => $formated_comments));?>
 
         </div><!-- Close content -->
     	

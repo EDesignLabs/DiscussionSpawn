@@ -7,7 +7,8 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script type="text/javascript" src="<?=base_url()?>assets/js/jquery.sparkline.min.js"></script>
-	
+<script type="text/javascript" src="<?=base_url()?>assets/js/notifier.js"></script>
+
 <script type="text/javascript">
     var CI = {
       'base_url': '<?php echo base_url(); ?>'
@@ -17,7 +18,6 @@
 
 <?php if (in_array("can_edit_line", $this->tank_auth->get_permissions())): ?>
 	<script type="text/javascript" src="<?=base_url()?>assets/js/toolbox.js"></script>
-	<script type="text/javascript" src="<?=base_url()?>assets/js/notifier.js"></script>
 	<script type="text/javascript" src="<?=base_url()?>assets/js/functions.js"></script>
 	<script type="text/javascript" src="<?=base_url()?>assets/js/globals.js"></script>
 	<script type="text/javascript" src="<?=base_url()?>assets/uploadify/swfobject.js"></script>

@@ -27,7 +27,7 @@ body {
 }
 
 #menu{
-    height: 15px;
+    height: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
@@ -35,6 +35,17 @@ body {
 }
 
 #menu ol{
+    background-color: #555555;
+    border-radius: 23px 23px 23px 23px;
+    float: left;
+    height: 20px;
+    margin-left: 21px;
+    margin-right: auto;
+    margin-top: auto;
+    padding: 8px 14px 5px 5px;
+    position: relative;
+    top: -8px;
+    width: 675px;
 
 }
 
@@ -238,7 +249,27 @@ p{
 .success{
 	color:#0F0;
 }
+.post{
 
+	clear:both;
+}
+#comments{
+
+	clear:both;
+}
+
+.ui-state-hover{
+	background:none !important;
+	border:none !important
+}
+
+.bar-item span{
+    display: table;
+    float: left;
+    margin-right: 30px;
+    text-align: center;
+    width: 160px;
+}
 .comment{
     background-color: white;
     margin-bottom: 12px;

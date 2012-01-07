@@ -35,9 +35,7 @@ console.log($(this).parent().find('.comment-body').text());
 	$( "#comment-box" ).autocomplete({
 		source: function (request, response) {
 					request.term = request.term.split(" ").pop();
-					
-					console.log("test:"+request.term);
-					
+										
 			        var term = $.ui.autocomplete.escapeRegex(request.term)
 			            , startsWithMatcher = new RegExp("^" + term, "i")
 			            , startsWith = $.grep(source, function(value) {
@@ -49,7 +47,9 @@ console.log($(this).parent().find('.comment-body').text());
 			                    containsMatcher.test(value.label || value.value || value);
 			            });
 			
-			        response(startsWith.concat(contains));
+			        response(startsWith.concat(contains).slice(0,5));
+					
+
 			    },
 			    
 			    select: function( event, ui ) {
@@ -65,7 +65,9 @@ console.log($(this).parent().find('.comment-body').text());
 
 //for polls
 $(function(){
-	$('.inlinebar').sparkline('html', {type: 'pie',height:50} );
+	var graphSettings = {type: 'bar',height:200,barWidth:160,barSpacing: 30};
+
+	$('.inlinebar').sparkline('html', graphSettings);
 
 	$('.submit-form a').click(function(){	
 	
@@ -80,7 +82,6 @@ $(function(){
 			success: function(data){
 				$('.submit-form').hide();
 				$('.poll-results').show();
-				$('.inlinebar').sparkline('html', {type: 'pie',height:50} );
 			}
 		});
 		
