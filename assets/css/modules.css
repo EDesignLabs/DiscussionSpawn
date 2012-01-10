@@ -14,6 +14,13 @@
 
 }
 
+.node .youtubebox article{
+		text-align:center;
+		background: url("../img/littleknobs.png") repeat scroll right top #FFFFFF;
+
+}
+
+
 .node.align-left .imagebox img, .node.align-right .imagebox img{
 	max-width: 415px;
 }
@@ -21,3 +28,25 @@
 .node.align-full .imagebox img{
 	max-width: 965px;
 }
+
+.node .promptbox article{
+		text-align:center;
+		background: url("../img/lined-paper.png") repeat scroll right top #FFFFFF;
+		font-family: 'Handlee', cursive;
+}
+
+.node .promptbox article h1{
+
+		font-family: 'Handlee', cursive;
+}
+
+.node .poll article {
+		font-size:16px;
+		background: url("../img/whitediamond.png") repeat scroll right top #FFFFFF;
+		
+}
+.node .poll article h1{
+		font-size:16px;
+		
+}
+

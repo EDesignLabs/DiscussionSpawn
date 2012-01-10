@@ -42,7 +42,50 @@ class user_model extends CI_Model {
 		$this->db->order_by('insert_time','desc');
 		$query = $this->db->get('notifications');
 		
-		return $query->result();
+		return $query->result_array() ;
+	}
+	
+	function get_replies($username)
+	{
+		$this->db->where(array('username' => $username));
+		$this->db->order_by('insert_time','desc');
+		$query = $this->db->get('notifications');
+		
+		return $query->result() ;
+	}
+	
+	function set_user_replies($message_id){
+		$data = array(
+					   'status' => "read"
+					);
+
+		$this->db->where('$message_id',$message_id);
+		$this->db->update('notifications', $data);
+
+	}
+	
+	function submit_poll($entry_id, $input){
+		$query = $this->db->get_where('entry', array('entry_id' => $entry_id), 1);
+		
+		if ($query->num_rows() > 0)
+		{
+			
+		
+		   $row = $query->row();
+			$old_votes = json_decode($row->field2,true);
+			$old_votes[$this->tank_auth->get_username()] = $input;
+			
+			$data = array(
+						   'field2' => json_encode($old_votes)
+						);
+
+			$this->db->where('entry_id',$entry_id);
+			$this->db->update('entry', $data);
+			
+			return json_encode($old_votes);
+		} 
+
+
 	}
 	
 	/*

@@ -5,42 +5,37 @@ $(function(){
 		
 		commentform.find('.parent_id').val($(this).parent().data('id'));
 		commentform.find('.parent_username').val($(this).parent().data('username'));
-
+		commentform.find('.parent_comment').val($(this).parent().find('.comment-body').text());
+console.log($(this).parent().find('.comment-body').text());
 		$(this).parent().append($('#comment-form'));
 		return false;
 	});
 	
 	var source = [
-		"ActionScript",
-		"AppleScript",
-		"Asp",
-		"BASIC",
-		"C",
-		"C++",
-		"Clojure",
-		"COBOL",
-		"ColdFusion",
-		"Erlang",
-		"Fortran",
-		"Groovy",
-		"Haskell",
-		"Java",
-		"JavaScript",
-		"Lisp",
-		"Perl",
-		"PHP",
-		"Python",
-		"Ruby",
-		"Scala",
-		"Scheme"
+		"In my opinion…",
+		"There is a lot of evidence for…",
+		"Given what we know about_______, the",
+		"One point that was not clear to me was",
+		"Are you saying that",
+		"Can you please clarify?",
+		"I see your point, but what about",
+		"Another way of looking at it is",
+		"I'm still not convinced that",
+		"I don’t entirely agree with",
+		"I would argue instead",
+		"I agree with ______ because",
+		"This makes sense because",
+		"I also thought this was the case",
+		"I agree with ________, and I would like to clarify by adding",
+		"My opinion is similar, but I would add",
+		"True.  Another way to look at it is",
+		"Based on the data, it is reasonable to conclude",
 	];
 	
 	$( "#comment-box" ).autocomplete({
 		source: function (request, response) {
 					request.term = request.term.split(" ").pop();
-					
-					console.log("test:"+request.term);
-					
+										
 			        var term = $.ui.autocomplete.escapeRegex(request.term)
 			            , startsWithMatcher = new RegExp("^" + term, "i")
 			            , startsWith = $.grep(source, function(value) {
@@ -52,7 +47,9 @@ $(function(){
 			                    containsMatcher.test(value.label || value.value || value);
 			            });
 			
-			        response(startsWith.concat(contains));
+			        response(startsWith.concat(contains).slice(0,5));
+					
+
 			    },
 			    
 			    select: function( event, ui ) {
@@ -63,4 +60,33 @@ $(function(){
 			position: { my : "left bottom", at: "left top",  collision: "fit" }
 	});
 	
+});
+
+
+//for polls
+$(function(){
+	var graphSettings = {type: 'bar',height:200,barWidth:160,barSpacing: 30};
+
+	$('.inlinebar').sparkline('html', graphSettings);
+
+	$('.submit-form a').click(function(){	
+	
+		var sendData = {};
+		sendData['entry_id'] = $('.submit-form').data('entry_id');
+		sendData['input'] = $('form input[type=radio]:checked').val()
+	
+		$.ajax({
+			url: CI.base_url + "user/submit_poll/",
+			type: 'POST',
+			data: sendData,
+			success: function(data){
+				$('.submit-form').hide();
+				$('.poll-results').show();
+			}
+		});
+		
+		return false;
+	
+	});
+
 });

@@ -55,16 +55,38 @@ class user extends MY_Controller {
 		$data['sentence_count'] = $this->textstatistics->sentence_count($complete_text);
 		$data['word_count'] = $this->textstatistics->word_count($complete_text);
 		$data['average_words_per_sentence'] = $this->textstatistics->average_words_per_sentence($complete_text);
-		$data['average_words_per_entry'] = $average_word_count_per_entry/$total_entries;
 		
+		if ($total_entries > 0)
+			$data['average_words_per_entry'] = $average_word_count_per_entry/$total_entries;
+		else
+			$data['average_words_per_entry'] = 0;
+			
+		$data['total_entries']=$total_entries;
 		$this->load->view('thread/user',$data);
 
 	}
 	
 	public function get_notices(){
-		echo $this->tank_auth->get_username();
-		var_dump($this->user_model->get_user_notifications($this->tank_auth->get_username()));
+		echo json_encode($this->user_model->get_user_notifications($this->tank_auth->get_username()));
 	
 	}
+	
+	public function submit_poll(){
+	
+		$entry_id = $this->input->post('entry_id');
+		$input = $this->input->post('input');
+		
+		echo $this->user_model->submit_poll($entry_id,$input);
+	
+	}
+	
+	public function replies(){
+		$data['title'] = "User Replies";
+		$data['query'] = $this->user_model->get_replies($this->tank_auth->get_username());
+		$this->load->view('thread/replies',$data);
+
+	
+	}
+	
 	
 }

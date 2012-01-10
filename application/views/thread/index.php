@@ -48,7 +48,7 @@
 				<? $this->load->view('nodes/imagebox/dialog'); ?>
 				<? $this->load->view('nodes/youtubebox/dialog'); ?>
 				<? $this->load->view('nodes/promptbox/dialog'); ?>
-
+				<? $this->load->view('nodes/poll/dialog'); ?>
 			</div>
 			
         <?php //$this->load->view('thread/footer');?>

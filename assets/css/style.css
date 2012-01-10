@@ -4,6 +4,7 @@ body {
 	background:#ffffff url('../img/bg.png') repeat right top;
 	overflow-y: scroll; 
 	font-family: sans-serif;
+	font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
 }
 
 #container{
@@ -15,7 +16,7 @@ body {
  h1{
 	font-family: 'Questrial', sans-serif;
 	font-size:36px;
- 
+	margin-bottom: 10px;
  
  }
 
@@ -27,7 +28,7 @@ body {
 }
 
 #menu{
-    height: 15px;
+    height: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
@@ -35,13 +36,30 @@ body {
 }
 
 #menu ol{
+    background-color: #222;
+    border-radius: 23px 23px 23px 23px;
+    float: left;
+    height: 20px;
+    margin-left: 21px;
+    margin-right: auto;
+    margin-top: auto;
+    padding: 8px 14px 5px 18px;
+    position: relative;
+    top: -8px;
+    width: 675px;
 
 }
 
 #menu li a{
-	float:left;
-	display:block;
-	margin:0 10px;
+    border-right: 1px solid black;
+    color: white;
+    display: block;
+    float: left;
+    font-size: 13px;
+    margin: 0 10px;
+    padding-right: 25px;
+    padding-top: 1px;
+    text-transform: uppercase;
 }
 
 .user{
@@ -49,6 +67,7 @@ body {
 }
 
 #footer{
+	 font-size: 10px;
 	width:800px;
 	margin:5px 0;
 	text-align:center;
@@ -173,6 +192,13 @@ article, .type-container{
 	box-shadow: -1px 1px 52px #E1E1E1;
 }
 
+article p {
+	text-align: left;
+    font-size: 12px;
+    line-height: 19px;
+    padding-bottom: 6px;
+}
+
 .align-right article, .align-right .type-container{
     float: left;
 
@@ -208,7 +234,7 @@ font{
 }
 
 h2{
-	font-size:24px;
+	font-size:16px;
 	margin:4px;
 }
 
@@ -238,12 +264,122 @@ p{
 .success{
 	color:#0F0;
 }
+.post{
 
+	clear:both;
+}
+
+.post h1{
+
+	float:left;
+}
+
+.post h2:first-child{
+	font-family: 'Questrial', sans-serif;
+	font-size:36px;
+	margin-bottom: 10px;
+}
+
+#comments{
+
+	clear:both;
+}
+
+.ui-state-hover{
+	background:none !important;
+	border:none !important
+}
+
+.bar-item span{
+    display: table;
+    float: left;
+    margin-right: 30px;
+    text-align: center;
+    width: 160px;
+}
 .comment{
+	border-radius: 15px 15px 15px 15px;
     background-color: white;
     margin-bottom: 12px;
     padding: 12px;
 
+}
+
+
+
+#comment-form{
+	border-top: 1px dashed #aaa;
+	padding-top: 5px;
+
+}
+#comment-form h3{
+	font-size:10px;
+
+}
+
+time{
+	font-size:10px;
+
+}
+
+textarea{
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.post .date{
+	font-size: 10px;
+	float:right;
+}
+
+.post .title h2{
+	
+	float:left;
+}
+
+.post p {
+    font-size: 17px;
+    margin: 5px;
+    padding: 14px 14px 30px 0;
+}
+
+#menu li a.new-replies.full{
+	color:red;
+	font-weight:bold;
+
+}
+
+#comment-form input{
+    background: none repeat scroll 0 0 #4D97F1;
+    border: 1px solid #3B72B4;
+    bottom: 0;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    color: #FFFFFF;
+    display: block;
+    font-size: 11px;
+    font-weight: 900;
+    height: 22px;
+    line-height: 22px;
+	margin: 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    width: 80px;
+}
+.submit-form a {
+    background: none repeat scroll 0 0 #4D97F1;
+    border: 1px solid #3B72B4;
+    bottom: 0;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    color: #FFFFFF;
+    display: block;
+    font-size: 11px;
+    font-weight: 900;
+    height: 22px;
+    line-height: 22px;
+	margin: 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    width: 80px;
 }
 
 .comment time{
@@ -319,8 +455,23 @@ p{
 
 }
 
-.ui-menu-item{
-	clear:none !important;
-	width: auto !important;
+.read {
+	color:#aaa;
 
 }
+
+.ui-menu-item{
+	//clear:none !important;
+	//width: auto !important;
+
+}
+
+.ui-widget input{
+	width:100%;
+}
+
+.votes{
+
+	font-weight:bold;
+}
+

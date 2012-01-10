@@ -1,4 +1,4 @@
-<div class = "title-textbox" title = "Text Box (with Comments)" > 
+<div class = "promptbox" title = "Promptbox" > 
 	<article>
 		<h1>
 			<?php echo $post->field2;?>
