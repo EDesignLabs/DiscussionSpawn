@@ -1,4 +1,4 @@
-A project for the DTC Lab. Design Spawn.
+A project for the DTC Lab. 
 
 How to install:
 1. Rename config-sample.php to config.php and fill in details.
@@ -6,4 +6,5 @@ How to install:
 2. Rename database-sample.php to database.php and fill in details.
 3. Make sure the captcha folder folder is writable by web server.
 4. Edit .htacess in root to reflect your url. 
+5. Upload the schema.sql to your database
 
