@@ -36,13 +36,6 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
   PRIMARY KEY (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Dumping data for table `ci_sessions`
---
-
-INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('293aa5130c6ab9bd7c0251cd7fd8e182', '72.229.62.116', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17', 1360020060, 0x613a343a7b733a373a22757365725f6964223b733a313a2237223b733a383a22757365726e616d65223b733a373a2274656163686572223b733a31313a227065726d697373696f6e73223b613a323a7b693a303b733a31333a2263616e5f656469745f6c696e65223b693a313b733a31373a2263616e5f656469745f636f6d6d656e7473223b7d733a363a22737461747573223b733a313a2231223b7d),
-('b35c68eec1d34560384f2dad782539b0', '72.229.62.116', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17', 1360020722, '');
 
 -- --------------------------------------------------------
 
@@ -62,30 +55,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`comment_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=69 ;
 
---
--- Dumping data for table `comment`
---
 
-INSERT INTO `comment` (`comment_id`, `entry_id`, `comment_parent`, `comment_name`, `comment_email`, `comment_body`, `comment_date`) VALUES
-(49, 65, 40, 'admin', '', 'what', '2011-12-08 14:12:15'),
-(50, 65, 47, 'admin', '', 'this is a swweert', '2011-12-08 14:12:39'),
-(51, 65, 49, 'admin', '', 'cartman \r\n', '2011-12-08 14:13:11'),
-(52, 65, 48, 'admin', '', 'this is a reply to :what what', '2011-12-08 14:13:27'),
-(53, 65, 48, 'admin', '', 'hooters', '2011-12-08 14:20:04'),
-(54, 65, 53, 'admin', '', 'tester', '2011-12-08 14:23:21'),
-(55, 76, 0, 'teacher', '', 'asdffsd', '2013-01-03 18:13:45'),
-(56, 76, 0, 'teacher', '', 'asdffsd', '2013-01-03 18:13:53'),
-(57, 76, 0, 'teacher', '', 'asdffsd', '2013-01-03 18:16:25'),
-(58, 76, 0, 'teacher', '', 'asdffsd', '2013-01-03 18:17:54'),
-(59, 76, 0, 'teacher', '', 'hello', '2013-01-03 18:18:02'),
-(60, 76, 0, 'teacher', '', 'test', '2013-01-03 18:18:09'),
-(61, 76, 59, 'teacher', '', 'sfsdfdf', '2013-01-03 18:18:17'),
-(62, 62, 0, 'teacher', '', 'hello\n', '2013-01-03 18:25:32'),
-(63, 62, 62, 'teacher', '', 'hello from orage', '2013-01-03 18:25:59'),
-(64, 76, 60, 'teacher', '', 'good', '2013-01-03 18:33:27'),
-(65, 62, 63, 'teacher', '', 'bluebleue blue', '2013-01-03 18:41:09'),
-(66, 62, 39, 'teacher', '', 'factbook', '2013-01-03 18:41:30'),
-(67, 6, 0, 'teacher', '', ' hello ', '2013-01-14 03:19:26');
 
 -- --------------------------------------------------------
 
@@ -107,18 +77,6 @@ CREATE TABLE IF NOT EXISTS `entry` (
   PRIMARY KEY (`entry_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
---
--- Dumping data for table `entry`
---
-
-INSERT INTO `entry` (`entry_id`, `author_id`, `field1`, `field2`, `field3`, `entry_date`, `entry_type`, `position`, `top`) VALUES
-(5, 7, '', 'What is an example of opportunity cost from your own life? Think of a time when you had to make an important decision: What did you gain? What did you lose?', '', '2013-02-03 15:56:06', 'promptbox', 'full', 1410),
-(9, 7, 'Scarcity and Decision-Making', 'Re-read the passage we read yesterday on pg. 13. Then answer the following question: Why do Katniss and Gale decide to enter their names so many times?', 'true', '2013-02-04 14:17:46', 'title-textbox', 'full', 985),
-(10, 7, 'Making Connections', 'What is a real-world example of how people are forced to make tough decisions based on scarcity?', 'true', '2013-02-04 14:18:38', 'title-textbox', 'full', 1140),
-(11, 7, 'How do scarcity and opportunity cost influence characters in the Hunger Games?', '', 'false', '2013-02-04 18:37:20', 'title-textbox', 'full', 0),
-(13, 7, '511000f292693katniss_prim.jpg', 'I decided to volunteer for the Hunger Games instead of letting Prim go. What do you think of my decision? What was the opportunity cost of my decision?', 'true', '2013-02-04 18:42:36', 'imagebox', 'full', 595),
-(14, 7, '5110015ead7afkatniss.jpg', '', 'false', '2013-02-04 18:44:23', 'imagebox', 'full', 115),
-(15, 7, 'Take the poll! If you were Katniss, would you have volunteered for the Hunger Games? After selecting your answer, explain how opportunity cost influenced your decision.', '', 'Yes, No', '2013-02-04 18:47:41', 'poll', 'full', 495);
 
 -- --------------------------------------------------------
 
@@ -154,14 +112,6 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
---
--- Dumping data for table `notifications`
---
-
-INSERT INTO `notifications` (`id`, `username`, `post_id`, `comment_id`, `message`, `type`, `status`, `insert_time`) VALUES
-(1, '0', 6, 0, 'Someone has replyed to "..."  !', 'reply', 'unread', '2013-01-14 03:19:26'),
-(2, '', 12, 0, 'Someone has replyed to "..."  !', 'reply', 'unread', '2013-01-24 18:37:24'),
-(3, '', 3, 0, 'Someone has replyed to "..."  !', 'reply', 'unread', '2013-01-29 18:17:20');
 
 -- --------------------------------------------------------
 
@@ -241,8 +191,7 @@ CREATE TABLE IF NOT EXISTS `user_profiles` (
 --
 
 INSERT INTO `user_profiles` (`id`, `user_id`, `username`, `country`, `website`) VALUES
-(7, 7, 'teacher', NULL, 'test'),
-(8, 8, 'HUMcharterstudent', NULL, 'test');
+(7, 7, 'teacher', NULL, 'test');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
