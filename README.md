@@ -4,6 +4,7 @@ DiscussionSpawn
 A project for the DTC Lab. 
 
 How to install:
+
 1. Rename config-sample.php to config.php and fill in details.
 2. Rename database-sample.php to database.php and fill in details.
 3. Rename database-sample.php to database.php and fill in details.
