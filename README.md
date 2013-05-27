@@ -1,9 +1,11 @@
 DiscussionSpawn
 ===============
 
-A project for the DTC Lab. 
+An opensource discussion board for creating collaborative debate spaces. Built on codeignitor.
 
-How to install:
+
+Installation
+===============
 
 1. Rename config-sample.php to config.php and fill in details.
 2. Rename database-sample.php to database.php and fill in details.
